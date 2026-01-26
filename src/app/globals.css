@@ -2,43 +2,115 @@
 @import "tw-animate-css";
 
 :root {
-  --background: rgb(242, 242, 242);
-  --foreground: rgb(27, 27, 27);
-  --primary: rgb(41, 60, 124);
-  --primary-foreground: rgb(27, 27, 27);
-  --secondary: rgb(197, 163, 119);
-  --secondary-foreground: rgb(51, 51, 51);
-  --tertiary: rgb(254, 187, 38);
-  --tertiary-foreground: rgb(165, 165, 165);
-  --font-sans: DM Sans, ui-sans-serif, sans-serif, system-ui;
-  --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-  --font-mono: JetBrains Mono, ui-monospace, monospace;
-  --radius: 0.375rem;
+  font-size: 16px;
+
+  /* brand colors */
+  --primary: #293c7c;
+  --secondary: #c5a377;
+  --third: #febb26;
+  --white: #ffffff;
+  --background: #f2f2f2;
+  --stroke: #eeeeee;
+
+  /* text colors */
+  --primary-foreground: #1b1b1b; /* foreground = text color in figma*/
+  --secondary-foreground: #333333;
+  --third-foreground: #a5a5a5;
+
+  /* alert colors */
+  --green: #07c37b;
+  --orange: #f4c724;
+  --red: #c30734;
+  --blue: #2a73ff;
+
+  /* bg colors */
+  --bg-1: rgba(41, 60, 124, 0.08);
+  --bg-2: rgba(197, 163, 119, 0.06);
+  --bg-green: rgba(7, 195, 123, 0.08);
+  --bg-orange: rgba(244, 199, 36, 0.08);
+  --bg-red: rgba(195, 7, 52, 0.08);
+  --bg-blue: rgba(42, 115, 255, 0.08);
+
+  /* gray colors */
+  --dark: #1d1f1f;
+  --gray-600: #333333;
+  --gray-500: #444444;
+  --gray-400: #666666;
+  --gray-300: #a5a5a5;
+  --gray-200: #d6d6d6;
+  --gray-100: #eeeeee;
+  --gray-50: #fafafa;
+
+  /* radius */
+  --radius: 4px;
+
+  /* spacing => used for padding, margin, width & height in tailwind*/
+  --spacing: 4px;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-primary: var(--primary)
-    /* bg-primary - text-primary - border-primary - fill-primary */;
-  --color-primary-foreground: var(--primary-foreground);
+  /* brand colors => bg-primary / text-primary / border-primary / fill-primary */
+  --color-primary: var(--primary);
   --color-secondary: var(--secondary);
+  --color-third: var(--third);
+  --color-white: var(--white);
+  --color-background: var(--background);
+  --color-stroke: var(--stroke);
+
+  /* text colors => text-primary-foreground / bg-primary-foreground / border-primary-foreground / fill-primary-foreground */
+  --color-primary-foreground: var(--primary-foreground);
   --color-secondary-foreground: var(--secondary-foreground);
-  --color-tertiary: var(--tertiary);
-  --color-tertiary-foreground: var(--tertiary-foreground);
+  --color-third-foreground: var(--third-foreground);
 
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-mono);
-  --font-serif: var(--font-serif);
+  /* alert colors => bg-brand-green / text-brand-green / border-brand-green / fill-brand-green */
+  --color-brand-green: var(--green);
+  --color-brand-orange: var(--orange);
+  --color-brand-red: var(--red);
+  --color-brand-blue: var(--blue);
 
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+  /* bg colors => bg-primary-transparent / text-primary-transparent / border-primary-transparent / fill-primary-transparent */
+  --color-primary-transparent: var(--bg-1);
+  --color-secondary-transparent: var(--bg-2);
+  --color-green-transparent: var(--bg-green);
+  --color-orange-transparent: var(--bg-orange);
+  --color-red-transparent: var(--bg-red);
+  --color-blue-transparent: var(--bg-blue);
+
+  /* gray colors => bg-dark-600 / text-dark-600 / border-dark-600 / fill-dark-600 */
+  --color-dark: var(--dark);
+  --color-dark-600: var(--gray-600);
+  --color-dark-500: var(--gray-500);
+  --color-dark-400: var(--gray-400);
+  --color-dark-300: var(--gray-300);
+  --color-dark-200: var(--gray-200);
+  --color-dark-100: var(--gray-100);
+  --color-dark-50: var(--gray-50);
+
+  /* radius => rounded-sm / rounded-md / rounded-lg / rounded-xl / rounded-2xl */
+  --radius-sm: var(--radius);
+  --radius-md: calc(var(--radius) * 2);
+  --radius-lg: calc(var(--radius) * 3);
+  --radius-xl: calc(var(--radius) * 4);
+  --radius-2xl: calc(var(--radius) * 5);
+
+  /* spacing => used for padding, margin, width & height in tailwind*/
+  /* p-sm / ps-sm / pe-sm / pt-sm / pb-sm / m-sm / w-sm / h-sm */
+  --spacing-sm: var(--spacing);
+  --spacing-md: calc(var(--spacing) * 2);
+  --spacing-lg: calc(var(--spacing) * 3);
+  --spacing-xl: calc(var(--spacing) * 4);
+  --spacing-2xl: calc(var(--spacing) * 6);
+  --spacing-3xl: calc(var(--spacing) * 8);
+  --spacing-4xl: calc(var(--spacing) * 10);
+  --spacing-5xl: calc(var(--spacing) * 12);
+  --spacing-6xl: calc(var(--spacing) * 14);
+  --spacing-7xl: calc(var(--spacing) * 16);
+  --spacing-8xl: calc(var(--spacing) * 18);
+  --spacing-9xl: calc(var(--spacing) * 20);
 }
 
 @layer base {
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-primary-foreground;
   }
 }
