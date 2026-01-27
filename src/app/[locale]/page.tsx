@@ -1,12 +1,9 @@
-"use client";
-
-import { useTranslations } from "next-intl";
+import AuthDesign from "@/features/auth/components/shared/AuthDesign";
 
 export default function Home() {
-  const t = useTranslations("HomePage");
   return (
     <>
-      <h1 className="body-md-bold">{t("title")}</h1>
+      <AuthDesign>hi</AuthDesign>
     </>
   );
 }

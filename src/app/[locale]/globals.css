@@ -47,6 +47,19 @@
 
   /* spacing => used for padding, margin, width & height in tailwind*/
   --spacing: 4px;
+
+  /* font size */
+  --h1: 48px;
+  --h2: 40px;
+  --h3: 32px;
+  --h4: 24px;
+  --h5: 20px;
+  --h6: 18px;
+  --body-xl: 18px;
+  --body-lg: 16px;
+  --body-md: 14px;
+  --body-sm: 12px;
+  --body-xs: 10px;
 }
 
 @theme inline {
@@ -112,108 +125,129 @@
   --spacing-9xl: calc(var(--spacing) * 20);
 
   /* fonts */
-  --text-h1: 48px;
-  --text-h2: 40px;
-  --text-h3: 32px;
-  --text-h4: 24px;
-  --text-h5: 20px;
-  --text-h6: 18px;
-  --text-body-xl: 18px;
-  --text-body-lg: 16px;
-  --text-body-md: 14px;
-  --text-body-sm: 12px;
-  --text-body-xs: 10px;
+  --text-h1: var(--h1);
+  --text-h2: var(--h2);
+  --text-h3: var(--h3);
+  --text-h4: var(--h4);
+  --text-h5: var(--h5);
+  --text-h6: var(--h6);
+  --text-body-xl: var(--body-xl);
+  --text-body-lg: var(--body-lg);
+  --text-body-md: var(--body-md);
+  --text-body-sm: var(--body-sm);
+  --text-body-xs: var(--body-xs);
 }
 
 @layer base {
   body {
-    @apply bg-background text-primary-foreground;
+    @apply bg-white text-primary-foreground;
   }
 }
 
 
 /* font utilities */
 @utility heading-1 {
-  @apply text-h1 font-bold;
+  @apply text-h1;
+  font-weight: bold;
 }
 
 @utility heading-2 {
-  @apply text-h2 font-bold;
+  @apply text-h2;
+  font-weight: bold;
 }
 
 @utility heading-3 {
-  @apply text-h3 font-bold;
+  @apply text-h3;
+  font-weight: bold;
 }
 
 @utility heading-4 {
-  @apply text-h4 font-bold;
+  @apply text-h4;
+  font-weight: bold;
 }
 
 @utility heading-5 {
-  @apply text-h5 font-bold;
+  @apply text-h5;
+  font-weight: bold;
 }
 
 @utility heading-6 {
-  @apply text-h6 font-bold;
+  @apply text-h6;
+  font-weight: bold;
 }
 
 @utility body-xl-bold {
-  @apply text-body-xl font-bold;
+  @apply text-body-xl;
+  font-weight: bold;
 }
 
 @utility body-xl-medium {
-  @apply text-body-xl font-medium;
+  @apply text-body-xl;
+  font-weight: medium;
 }
 
 @utility body-xl-regular {
-  @apply text-body-xl font-normal;
+  @apply text-body-xl;
+  font-weight: normal;
 }
 
 @utility body-lg-bold {
-  @apply text-body-lg font-bold;
+  @apply text-body-lg;
+  font-weight: bold;
 }
 
 @utility body-lg-medium {
-  @apply text-body-lg font-medium;
+  @apply text-body-lg;
+  font-weight: medium;
 }
 
 @utility body-lg-regular {
-  @apply text-body-lg font-normal;
+  @apply text-body-lg;
+  font-weight: normal;
 }
 
 @utility body-md-bold {
-  @apply text-body-md font-bold;
+  @apply text-body-md;
+  font-weight: bold;
 }
 
 @utility body-md-medium {
-  @apply text-body-md font-medium;
+  @apply text-body-md;
+  font-weight: medium;
 }
 
 @utility body-md-regular {
-  @apply text-body-md font-normal;
+  @apply text-body-md;
+  font-weight: normal;
 }
 
 @utility body-sm-bold {
-  @apply text-body-sm font-bold;
+  @apply text-body-sm;
+  font-weight: bold;
 }
 
 @utility body-sm-medium {
-  @apply text-body-sm font-medium;
+  @apply text-body-sm;
+  font-weight: medium;
 }
 
 @utility body-sm-regular {
-  @apply text-body-sm font-normal;
+  @apply text-body-sm;
+  font-weight: normal;
 }
 
 @utility body-xs-bold {
-  @apply text-body-xs font-bold;
+  @apply text-body-xs;
+  font-weight: bold;
 }
 
 @utility body-xs-medium {
-  @apply text-body-xs font-medium;
+  @apply text-body-xs;
+  font-weight: medium;
 }
 
 @utility body-xs-regular {
-  @apply text-body-xs font-normal;
+  @apply text-body-xs;
+  font-weight: normal;
 }
 
