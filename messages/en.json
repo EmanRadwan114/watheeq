@@ -1,5 +1,14 @@
 {
   "HomePage": {
     "title": "Welcome to Watheeq App"
+  },
+  "Otp": {
+    "title": "Enter Verification Code",
+    "description": "A verification code has been sent to your email",
+    "placeholder": "Enter the code",
+    "verify": "Verify",
+    "resend": "Resend",
+    "error": "Invalid code",
+    "success": "Verification successful"
   }
 }
