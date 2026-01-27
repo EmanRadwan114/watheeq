@@ -2,6 +2,22 @@
   "HomePage": {
     "title": "Welcome to Watheeq App"
   },
+  "auth": {
+    "welcome": {
+      "title": "Welcome to Watheeq Financial Platform",
+      "description": "Watheeq strives to be the preferred financial and investment partner for those seeking diverse investment opportunities and comprehensive financial services compliant with Islamic Sharia principles.",
+      "copyrights": "© All rights reserved - Watheeq Financial Platform 2024"
+    },
+    "footer": [
+      { "id": "contactUs", "label": "Contact Us" },
+      { "id": "aboutUs", "label": "About Us" },
+      { "id": "terms", "label": "Terms and Conditions" }
+    ],
+    "language": {
+      "arabic": "عربي",
+      "english": "English"
+    }
+  },
   "Otp": {
     "title": "Enter Verification Code",
     "description": "A verification code has been sent to your email",
