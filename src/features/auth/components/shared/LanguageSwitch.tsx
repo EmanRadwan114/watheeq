@@ -3,16 +3,13 @@ import React, { ReactNode } from "react";
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuItem,
   DropdownMenuTrigger,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
 } from "@/components/ui/dropdown-menu";
 import { useRouter, usePathname } from "@/i18n/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import { ChevronDown } from "lucide-react";
-import {
-  DropdownMenuRadioGroup,
-  DropdownMenuRadioItem,
-} from "@radix-ui/react-dropdown-menu";
 
 interface IProps {
   translationKey: string;
@@ -54,7 +51,9 @@ const LanguageSwitch: React.FC<IProps> = ({
             value={locale}
             onValueChange={(value) => router.push(pathname, { locale: value })}
           >
-            <DropdownMenuRadioItem value="ar"></DropdownMenuRadioItem>
+            <DropdownMenuRadioItem value="ar">
+              {t("language.arabic")}
+            </DropdownMenuRadioItem>
             <DropdownMenuRadioItem value="en">
               {t("language.english")}
             </DropdownMenuRadioItem>
