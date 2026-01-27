@@ -45,9 +45,6 @@
   /* radius */
   --radius: 4px;
 
-  /* spacing => used for padding, margin, width & height in tailwind*/
-  --spacing: 4px;
-
   /* font size */
   --h1: 48px;
   --h2: 40px;

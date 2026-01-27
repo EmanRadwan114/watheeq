@@ -22,9 +22,9 @@ const AuthDesign: React.FC<IProps> = ({ children }) => {
       <section className="flex min-h-screen">
         {/* ----------------form */}
         <div className="flex-1">
-          <div className="h-full flex flex-col px-16 py-6">
+          <div className="h-full flex flex-col px-16 py-6 gap-3">
             {/* form data */}
-            <div>{children}</div>
+            <div className="flex items-center justify-center">{children}</div>
 
             {/* form footer */}
             <div className="flex mt-auto justify-between items-center">
