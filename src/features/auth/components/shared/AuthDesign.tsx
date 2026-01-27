@@ -2,7 +2,7 @@ import React, { ReactNode } from "react";
 import arabicDesignImg from "@/assets/images/arabic-design.png";
 import shadingImg from "@/assets/images/shading.jpg";
 import Image from "next/image";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import LanguageSwitch from "./LanguageSwitch";
 import saudiFlag from "@/assets/icons/saudi-arabia.svg";
 
@@ -12,6 +12,7 @@ interface IProps {
 
 const AuthDesign: React.FC<IProps> = ({ children }) => {
   const t = useTranslations("auth");
+  const local = useLocale();
 
   const footerItems = t.raw("footer") as Array<{ id: string; label: string }>;
 
@@ -21,16 +22,16 @@ const AuthDesign: React.FC<IProps> = ({ children }) => {
       <section className="flex min-h-screen">
         {/* ----------------form */}
         <div className="flex-1">
-          <div className="h-full flex flex-col px-16 py-6">
+          <div className="h-full flex flex-col px-16 py-6 gap-3">
             {/* form data */}
-            <div>{children}</div>
+            <div className="flex items-center justify-center">{children}</div>
 
             {/* form footer */}
-            <div className="flex mt-auto justify-between">
+            <div className="flex mt-auto justify-between items-center">
               {/* items */}
               <ul className="flex gap-7">
                 {footerItems.map((item) => (
-                  <li className="body-md-regular" key={item.id}>
+                  <li className="body-md-regular cursor-pointer" key={item.id}>
                     {item.label}
                   </li>
                 ))}
@@ -62,7 +63,7 @@ const AuthDesign: React.FC<IProps> = ({ children }) => {
           <Image
             src={arabicDesignImg}
             alt="arabic design"
-            className="absolute top-1/4 start-[30%]"
+            className={`absolute top-[28%] start-[37%] 2xl:start-[45%]! ${local === "en" ? "rotate-240" : "rotate-0"} `}
           />
 
           {/* welcome msg */}

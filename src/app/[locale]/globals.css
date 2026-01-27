@@ -33,7 +33,7 @@
 
   /* gray colors */
   --dark: #1d1f1f;
-  --gray-700:#8F8F8F;
+  --gray-700: #8f8f8f;
   --gray-600: #333333;
   --gray-500: #444444;
   --gray-400: #666666;
@@ -44,9 +44,6 @@
 
   /* radius */
   --radius: 4px;
-
-  /* spacing => used for padding, margin, width & height in tailwind*/
-  --spacing: 4px;
 
   /* font size */
   --h1: 48px;
@@ -143,7 +140,6 @@
     @apply bg-white text-primary-foreground;
   }
 }
-
 
 /* font utilities */
 @utility heading-1 {
@@ -250,4 +246,3 @@
   @apply text-body-xs;
   font-weight: normal;
 }
-
