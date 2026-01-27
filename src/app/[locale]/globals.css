@@ -33,6 +33,7 @@
 
   /* gray colors */
   --dark: #1d1f1f;
+  --gray-700:#8F8F8F;
   --gray-600: #333333;
   --gray-500: #444444;
   --gray-400: #666666;
@@ -90,7 +91,9 @@
   --color-blue-transparent: var(--bg-blue);
 
   /* gray colors => bg-dark-600 / text-dark-600 / border-dark-600 / fill-dark-600 */
+  /*gray 700 => border gray 700 => otp  */
   --color-dark: var(--dark);
+  --color-dark-700: var(--gray-700);
   --color-dark-600: var(--gray-600);
   --color-dark-500: var(--gray-500);
   --color-dark-400: var(--gray-400);
@@ -140,6 +143,7 @@
     @apply bg-white text-primary-foreground;
   }
 }
+
 
 /* font utilities */
 @utility heading-1 {
@@ -246,3 +250,4 @@
   @apply text-body-xs;
   font-weight: normal;
 }
+
