@@ -44,9 +44,7 @@ const AuthPhoneInput: React.FC<AuthPhoneInputProps> = ({
         <select
           value={country.code}
           onChange={(e) =>
-            setCountry(
-              COUNTRIES.find((c) => c.code === e.target.value)!
-            )
+            setCountry(COUNTRIES.find((c) => c.code === e.target.value)!)
           }
           className="
             flex items-center gap-1
@@ -64,12 +62,7 @@ const AuthPhoneInput: React.FC<AuthPhoneInputProps> = ({
         </select>
 
         {/* Flag */}
-        <Image
-          src={country.flag}
-          alt={country.code}
-          width={24}
-          height={24}
-        />
+        <Image src={country.flag} alt={country.code} width={24} height={24} />
 
         {/* Divider */}
         <span className="h-5 w-px bg-gray-300" />
@@ -77,15 +70,12 @@ const AuthPhoneInput: React.FC<AuthPhoneInputProps> = ({
         {/* Phone Input */}
         <Input
           type="tel"
-          
           placeholder={country.placeholder}
-          onChange={(e) =>
-            onChange?.(e.target.value, country)
-          }
+          onChange={(e) => onChange?.(e.target.value, country)}
           className={cn(
             "flex-1 h-full border-none bg-transparent px-2 ",
             "text-sm leading-5 placeholder:text-gray-400",
-            "focus-visible:ring-0 focus-visible:ring-offset-0"
+            "focus-visible:ring-0 focus-visible:ring-offset-0",
           )}
         />
       </div>
