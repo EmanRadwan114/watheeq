@@ -27,8 +27,7 @@ export function OtpForm() {
                 h-11 w-11
                 rounded-md 
                 border border-dark-700 
-                text-xl font-semibold text-secondary-foreground focus:outline-none
-                focus:ring-0  focus-visible:ring-0"
+                text-xl font-semibold text-secondary-foreground "
             />
           ))}
         </InputOTPGroup>

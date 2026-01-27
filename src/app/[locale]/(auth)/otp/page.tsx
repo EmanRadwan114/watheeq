@@ -1,4 +1,4 @@
-import { OtpForm } from "@/components/ui/otp-ui";
+import { OtpForm } from "@/features/auth/components/otp-ui";
 import React from "react";
 
 interface IProps {}
