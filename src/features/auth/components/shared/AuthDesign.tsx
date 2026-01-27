@@ -22,14 +22,14 @@ const AuthDesign: React.FC<IProps> = ({ children }) => {
       <section className="flex min-h-screen">
         {/* ----------------form */}
         <div className="flex-1">
-          <div className="h-full flex flex-col px-16 py-6 gap-3">
+          <div className="h-full flex flex-col px-md lg:px-16 py-6 gap-3">
             {/* form data */}
             <div className="flex items-center justify-center">{children}</div>
 
             {/* form footer */}
-            <div className="flex mt-auto justify-between items-center">
+            <div className="flex flex-col md:flex-row gap-2 mt-auto items-center md:justify-between ">
               {/* items */}
-              <ul className="flex gap-7">
+              <ul className="flex gap-x-4 md:gap-x-7 gap-y-1.5 order-1 md:order-0 flex-wrap">
                 {footerItems.map((item) => (
                   <li className="body-md-regular cursor-pointer" key={item.id}>
                     {item.label}
@@ -52,7 +52,7 @@ const AuthDesign: React.FC<IProps> = ({ children }) => {
         </div>
 
         {/* ----------------img */}
-        <div className="relative flex-1 max-h-screen overflow-hidden">
+        <div className="relative flex-1 max-h-screen overflow-hidden hidden lg:block">
           <Image
             src={shadingImg}
             alt="towers and high buildings in saudi arabia"
