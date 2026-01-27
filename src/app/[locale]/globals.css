@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+
 :root {
   font-size: 16px;
 
@@ -16,7 +17,7 @@
   --primary-foreground: #1b1b1b; /* foreground = text color in figma*/
   --secondary-foreground: #333333;
   --third-foreground: #a5a5a5;
-
+  --fourth-foreground: #071638;
   /* alert colors */
   --green: #07c37b;
   --orange: #f4c724;
@@ -62,6 +63,7 @@
   --color-primary-foreground: var(--primary-foreground);
   --color-secondary-foreground: var(--secondary-foreground);
   --color-third-foreground: var(--third-foreground);
+  --color-fourth-foreground: var(--fourth-foreground);
 
   /* alert colors => bg-brand-green / text-brand-green / border-brand-green / fill-brand-green */
   --color-brand-green: var(--green);
