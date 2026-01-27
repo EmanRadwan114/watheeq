@@ -20,63 +20,38 @@ const AuthPhoneInput: React.FC<AuthPhoneInputProps> = ({
   const [country, setCountry] = React.useState<Country>(COUNTRIES[0]);
 
   return (
-    <div className="flex flex-col gap-1.5">
-      {/* Label */}
-      <label className="text-[11px] leading-[16px] text-gray-600">
+    <div className="flex flex-col gap-1.5 ps-3xl pe-3xl  ">
+      <label className=" text-body-lg body-lg-bold leading-[16px] text-gray-600">
         {label}
       </label>
 
-      {/* Container */}
       <div
         className="
-          flex items-center gap-2
-          h-[48px]
-          w-[408px]
-          rounded-[4px]
-          border border-gray-200
-          bg-white
-          px-3
-          focus-within:border-secondary
-          transition-colors
-        "
+      flex items-center gap-2
+      h-12 w-full
+      rounded-sm
+      border border-gray-200
+      bg-white
+      ps-2xl pe-2xl
+      focus-within:border-secondary
+      transition-colors
+    "
       >
-        {/* Country Select */}
-        <select
-          value={country.code}
-          onChange={(e) =>
-            setCountry(COUNTRIES.find((c) => c.code === e.target.value)!)
-          }
-          className="
-            flex items-center gap-1
-            bg-transparent
-            text-sm
-            outline-none
-            cursor-pointer
-          "
-        >
-          {COUNTRIES.map((c) => (
-            <option key={c.code} value={c.code}>
-              {c.dialCode}
-            </option>
-          ))}
-        </select>
+        <span>+966</span>
+        <Image
+          src="/icons/saudi-arabia.svg"
+          alt="SA"
+          width={24}
+          height={24}
+          className="object-cover"
+        />
 
-        {/* Flag */}
-        <Image src={country.flag} alt={country.code} width={24} height={24} />
-
-        {/* Divider */}
         <span className="h-5 w-px bg-gray-300" />
 
-        {/* Phone Input */}
         <Input
           type="tel"
-          placeholder={country.placeholder}
-          onChange={(e) => onChange?.(e.target.value, country)}
-          className={cn(
-            "flex-1 h-full border-none bg-transparent px-2 ",
-            "text-sm leading-5 placeholder:text-gray-400",
-            "focus-visible:ring-0 focus-visible:ring-offset-0",
-          )}
+          placeholder="5xxxxxxxxx"
+          className="flex-1 h-full border-none bg-transparent px-1.5 text-sm leading-5 placeholder:text-gray-400 focus-visible:ring-0 focus-visible:ring-offset-0"
         />
       </div>
     </div>
