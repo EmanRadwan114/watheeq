@@ -3,7 +3,8 @@ import React from "react";
 interface IProps {}
 
 const Login: React.FC<IProps> = ({}) => {
-  return <>Loginnnnn</>;
+  return <>Loginnnnn
+  </>;
 };
 
 export default Login;
