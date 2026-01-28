@@ -38,6 +38,12 @@
             "label": "كلمة المرور",
             "type": "password",
             "placeholder": "ادخل كلمة المرور"
+          },
+          {
+             "id": "phoneNum",
+            "label": "رقم الجوال",
+            "type": "number",
+            "placeholder": "5XXXXXXXX"
           }
         ],
         "create-account": "قم بالتسجيل",
