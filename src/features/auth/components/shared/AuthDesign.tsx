@@ -3,7 +3,7 @@ import arabicDesignImg from "@/assets/images/arabic-design.png";
 import shadingImg from "@/assets/images/shading.jpg";
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
-import LanguageSwitch from "./LanguageSwitch";
+import LanguageSwitch from "../../../../components/shared/LanguageSwitch";
 import saudiFlag from "@/assets/icons/saudi-arabia.svg";
 
 interface IProps {
