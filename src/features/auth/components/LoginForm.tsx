@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import LoginSwitch from "./LoginSwitch";
 import FormHeader from "./FormHeader";
+import LoginCompanies from "./LoginCompanies";
 
 const LoginForm: React.FC = () => {
   const [type, setType] = useState("type1");
@@ -15,9 +16,7 @@ const LoginForm: React.FC = () => {
         <LoginSwitch type={type} setType={setType} />
 
         <div>
-          {type === "type2"
-            ? "component for companies"
-            : "component for individuals"}
+          {type === "type2" ? <LoginCompanies /> : "component for individuals"}
         </div>
       </section>
     </div>

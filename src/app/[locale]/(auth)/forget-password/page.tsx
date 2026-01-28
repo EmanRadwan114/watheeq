@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { ArrowRight, ArrowLeft } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
-import AuthPhoneInput from "@/components/shared/input-label";
+import FormField from "@/components/shared/FormField";
 import AuthDesign from "@/features/auth/components/shared/AuthDesign";
 import LogoImage from "@/components/shared/LogoImage";
 import { Button } from "@/components/ui/button";
@@ -48,7 +48,7 @@ const ForgetPassword: React.FC = () => {
             </div>
 
             <div className="space-y-4 ">
-              <AuthPhoneInput label={t("forgetPassword.phoneLabel")} />
+              <FormField label={t("forgetPassword.phoneLabel")} />
               <Button className="w-full bg-secondary">
                 {t("forgetPassword.next")}
               </Button>

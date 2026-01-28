@@ -25,7 +25,11 @@
       "form-labels": {
         "header": "Login",
         "description": "Log in to your account to access your dedicated investment dashboard and stay updated on your investments.",
-        "switch-type": "Log in as"
+        "switch-type": "Log in as",
+        "labels": [
+          { "id": "businessNum", "text": "Unified National Number" },
+          { "id": "password", "text": "Password" }
+        ]
       }
     }
   },
