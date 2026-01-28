@@ -7,7 +7,6 @@ import { Label } from "../ui/label";
 interface FormFieldProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string;
   icon?: string;
-  prefix?: string;
   rightElement?: React.ReactNode;
   onIconClick?: () => void;
   showDivider?: boolean;
@@ -20,7 +19,6 @@ interface FormFieldProps extends React.InputHTMLAttributes<HTMLInputElement> {
 const FormField: React.FC<FormFieldProps> = ({
   label,
   icon,
-  prefix,
   rightElement,
   onIconClick,
   showDivider = false,
@@ -45,11 +43,6 @@ const FormField: React.FC<FormFieldProps> = ({
           ${wrapperClassName}
         `}
       >
-        {prefix && (
-          <span className="text-gray-500 text-sm shrink-0 order-first">
-            {prefix}
-          </span>
-        )}
         <Input className={`${inputClassName}`} {...props} />
 
         {showDivider && <span className="h-5 w-px bg-gray-300" />}
