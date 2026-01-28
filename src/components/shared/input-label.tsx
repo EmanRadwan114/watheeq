@@ -1,30 +1,34 @@
 "use client";
-
 import * as React from "react";
 import Image from "next/image";
 import { Input } from "@/components/ui/input";
-import { cn } from "@/lib/utils";
-import { COUNTRIES, Country } from "../constants/countries";
+import passwordIcon from "@/assets/icons/eye-open.svg";
 
 interface AuthPhoneInputProps {
   label: string;
   value?: string;
-  onChange?: (value: string, country: Country) => void;
+  src: string;
+  num: string;
+  placeholder: string;
+  showDivider: boolean;
+  type: string;
 }
 
 const AuthPhoneInput: React.FC<AuthPhoneInputProps> = ({
   label,
+  src,
+  num,
+  placeholder,
+  showDivider,
+  type,
   value = "",
-  onChange,
 }) => {
-  const [country, setCountry] = React.useState<Country>(COUNTRIES[0]);
+  const [showPassword, setShowPassword] = React.useState(false);
 
+  const isPassword = type === "password";
   return (
     <div className="flex flex-col gap-1.5 ps-3xl pe-3xl  ">
-      <label className="text-body-lg body-lg-bold leading-[16px] text-gray-600">
-        {label}
-      </label>
-
+      <label className="text-body-lg body-lg-bold leading-[16px">{label}</label>
       <div
         className="
       flex items-center gap-2
@@ -37,22 +41,32 @@ const AuthPhoneInput: React.FC<AuthPhoneInputProps> = ({
       transition-colors
     "
       >
-        <span>+966</span>
-        <Image
-          src="/icons/saudi-arabia.svg"
-          alt="SA"
-          width={24}
-          height={24}
-          className="object-cover"
-        />
-
-        <span className="h-5 w-px bg-gray-300" />
-
         <Input
-          type="tel"
-          placeholder="5xxxxxxxxx"
-          className="flex-1 h-full border-none bg-transparent px-1.5 text-sm leading-5 placeholder:text-gray-400 focus-visible:ring-0 focus-visible:ring-offset-0"
+          type={isPassword && showPassword ? "text" : type}
+          placeholder={placeholder}
+          className="flex-1 h-full border-none bg-transparent px-1.5"
         />
+
+        {showDivider && <span className="h-5 w-px bg-gray-300" />}
+
+        {isPassword && (
+          <button
+            type="button"
+            onClick={() => setShowPassword((prev) => !prev)}
+          >
+            <Image
+              src={showPassword ? passwordIcon : src}
+              alt="toggle password"
+              width={20}
+              height={20}
+            />
+          </button>
+        )}
+
+        {!isPassword && src && (
+          <Image src={src} alt="icon" width={20} height={20} />
+        )}
+        <span>{num}</span>
       </div>
     </div>
   );
