@@ -38,6 +38,12 @@
             "text": "Password",
             "type": "password",
             "placeholder": "Enter password"
+          },
+          {
+            "id": "phoneNum",
+            "text": "Phone Number",
+            "type": "number",
+            "placeholder": "5XXXXXXXX"
           }
         ],
         "create-account": "Register",
