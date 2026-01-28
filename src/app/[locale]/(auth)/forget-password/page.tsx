@@ -1,4 +1,3 @@
-
 import React from "react";
 import Link from "next/link";
 import { ArrowRight, ArrowLeft } from "lucide-react";
@@ -13,7 +12,7 @@ const ForgetPassword: React.FC = () => {
   const isRTL = locale === "ar";
   return (
     <AuthDesign>
-      <section dir={isRTL ? "rtl" : "ltr"} className="h-screen bg-white">
+      <div dir={isRTL ? "rtl" : "ltr"} className="md:px-4xl md:py-4xl  w-full bg-white">
         <div className="h-full flex items-center justify-center ">
           <div className="w-full space-y-6">
             
@@ -34,11 +33,8 @@ const ForgetPassword: React.FC = () => {
                   </>
                 )}
               </Link>
-
               <LogoImage />
-              
             </div>
-
           
             <div className={isRTL ? "text-right" : "text-left"}>
               <h1 className="heading-4 text-fourth-foreground">
@@ -51,7 +47,7 @@ const ForgetPassword: React.FC = () => {
 
           
             <div className="space-y-4 ">
-              <AuthPhoneInput  label={t("forgetPassword.phoneLabel")} />
+              <AuthPhoneInput label={t("forgetPassword.phoneLabel")} />
               <AuthButton
                 label={t("forgetPassword.next")}
                 text={t("forgetPassword.next")}
@@ -60,7 +56,7 @@ const ForgetPassword: React.FC = () => {
             </div>
           </div>
         </div>
-      </section>
+      </div>
     </AuthDesign>
   );
 };

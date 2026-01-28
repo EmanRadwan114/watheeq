@@ -11,7 +11,7 @@ const LogoImage: React.FC<IProps> = ({}) => {
   <Image
     src={logo}
     alt="Watheeq Logo"
-    className="w-[70%] h-auto"
+    className="w-[40%] h-auto"
     priority
   />
 </div>
