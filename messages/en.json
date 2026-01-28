@@ -27,9 +27,23 @@
         "description": "Log in to your account to access your dedicated investment dashboard and stay updated on your investments.",
         "switch-type": "Log in as",
         "labels": [
-          { "id": "businessNum", "text": "Unified National Number" },
-          { "id": "password", "text": "Password" }
-        ]
+          {
+            "id": "businessNum",
+            "text": "Unified National Number",
+            "type": "number",
+            "placeholder": "Enter unified National Number"
+          },
+          {
+            "id": "password",
+            "text": "Password",
+            "type": "password",
+            "placeholder": "Enter password"
+          }
+        ],
+        "create-account": "Register",
+        "no-account": "Don't have an account?",
+        "remember-me": "Remember Me",
+        "forget-pass": "Forget Password?"
       }
     }
   },

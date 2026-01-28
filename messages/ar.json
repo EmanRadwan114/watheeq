@@ -27,9 +27,23 @@
         "description": "سجل الدخول إلى حسابك للوصول إلى لوحة إدارة الاستثمارات المخصصة لك، وابق على اطلاع دائم باستثماراتك",
         "switch-type": "تسجيل الدخول من خلال",
         "labels": [
-          { "id": "businessNum", "text": "رقم السجل التجاري" },
-          { "id": "password", "text": "كلمة المرور" }
-        ]
+          {
+            "id": "businessNum",
+            "label": "رقم السجل التجاري",
+            "type": "number",
+            "placeholder": "ادخل رقم السجل التجاري"
+          },
+          {
+            "id": "password",
+            "label": "كلمة المرور",
+            "type": "password",
+            "placeholder": "ادخل كلمة المرور"
+          }
+        ],
+        "create-account": "قم بالتسجيل",
+        "no-account": "ليس لديك حساب؟",
+        "remember-me": "تذكرني",
+        "forget-pass": "هل نسيت كلمة المرور؟"
       }
     }
   },
