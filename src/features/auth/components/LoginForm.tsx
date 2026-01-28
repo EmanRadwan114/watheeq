@@ -8,7 +8,7 @@ const LoginForm: React.FC = () => {
   const [type, setType] = useState("type1");
 
   return (
-    <div className="w-full lg:max-w-[78%] min-h-[1500px]">
+    <div className="w-full lg:max-w-[78%]">
       <FormHeader />
 
       <section className="py-5 px-7.5 shadow rounded-sm">
