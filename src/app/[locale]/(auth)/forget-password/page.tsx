@@ -3,7 +3,6 @@ import Link from "next/link";
 import { ArrowRight, ArrowLeft } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import AuthPhoneInput from "@/components/shared/input-label";
-import AuthButton from "@/components/shared/AuthButton";
 import AuthDesign from "@/features/auth/components/shared/AuthDesign";
 import LogoImage from "@/features/auth/components/shared/LogoImage";
 import { Button } from "@/components/ui/button";

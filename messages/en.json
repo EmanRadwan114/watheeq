@@ -16,6 +16,15 @@
     "language": {
       "arabic": "عربي",
       "english": "English"
+    },
+    "login": {
+      "types": [
+        { "id": "type1", "label": "individuals" },
+        { "id": "type2", "label": "companies" }
+      ],
+      "form-labels": {
+        "switch-type": "Log in as"
+      }
     }
   },
   "otp": {

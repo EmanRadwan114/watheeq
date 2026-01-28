@@ -8,6 +8,7 @@
   /* brand colors */
   --primary: #293c7c;
   --secondary: #c5a377;
+  --secondary-bold: #9c733d;
   --third: #febb26;
   --white: #ffffff;
   --background: #f2f2f2;
@@ -64,6 +65,7 @@
   /* brand colors => bg-primary / text-primary / border-primary / fill-primary */
   --color-primary: var(--primary);
   --color-secondary: var(--secondary);
+  --color-secondary-bold: var(--secondary-bold);
   --color-third: var(--third);
   --color-white: var(--white);
   --color-background: var(--background);
@@ -181,7 +183,7 @@
 
 @utility body-xl-medium {
   @apply text-body-xl;
-  font-weight: medium;
+  font-weight: 600;
 }
 
 @utility body-xl-regular {
@@ -196,7 +198,7 @@
 
 @utility body-lg-medium {
   @apply text-body-lg;
-  font-weight: medium;
+  font-weight: 600;
 }
 
 @utility body-lg-regular {
@@ -211,7 +213,7 @@
 
 @utility body-md-medium {
   @apply text-body-md;
-  font-weight: medium;
+  font-weight: 600;
 }
 
 @utility body-md-regular {
@@ -226,7 +228,7 @@
 
 @utility body-sm-medium {
   @apply text-body-sm;
-  font-weight: medium;
+  font-weight: 600;
 }
 
 @utility body-sm-regular {
@@ -241,7 +243,7 @@
 
 @utility body-xs-medium {
   @apply text-body-xs;
-  font-weight: medium;
+  font-weight: 600;
 }
 
 @utility body-xs-regular {

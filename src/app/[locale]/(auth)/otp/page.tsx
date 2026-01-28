@@ -2,7 +2,7 @@
 import { OtpForm } from "@/features/auth/components/otp-ui";
 import  { useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import AuthButton from "@/components/shared/AuthButton";
+
 import AuthDesign from "@/features/auth/components/shared/AuthDesign";
 import LogoImage from "@/features/auth/components/shared/LogoImage";
 import { Button } from "@/components/ui/button";
