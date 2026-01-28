@@ -21,7 +21,7 @@ const AuthPhoneInput: React.FC<AuthPhoneInputProps> = ({
 
   return (
     <div className="flex flex-col gap-1.5 ps-3xl pe-3xl  ">
-      <label className=" text-body-lg body-lg-bold leading-[16px] text-gray-600">
+      <label className="text-body-lg body-lg-bold leading-[16px] text-gray-600">
         {label}
       </label>
 
