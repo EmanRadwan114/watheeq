@@ -1,7 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-
 :root {
   font-size: 16px;
 
@@ -183,7 +182,7 @@
 
 @utility body-xl-medium {
   @apply text-body-xl;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 @utility body-xl-regular {
@@ -198,7 +197,7 @@
 
 @utility body-lg-medium {
   @apply text-body-lg;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 @utility body-lg-regular {
@@ -213,7 +212,7 @@
 
 @utility body-md-medium {
   @apply text-body-md;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 @utility body-md-regular {
@@ -228,7 +227,7 @@
 
 @utility body-sm-medium {
   @apply text-body-sm;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 @utility body-sm-regular {
@@ -243,10 +242,25 @@
 
 @utility body-xs-medium {
   @apply text-body-xs;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 @utility body-xs-regular {
   @apply text-body-xs;
   font-weight: normal;
+}
+
+/* scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--gray-200);
+  border-radius: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-button {
+  display: none;
 }

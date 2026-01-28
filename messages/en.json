@@ -23,6 +23,8 @@
         { "id": "type2", "label": "companies" }
       ],
       "form-labels": {
+        "header": "Login",
+        "description": "Log in to your account to access your dedicated investment dashboard and stay updated on your investments.",
         "switch-type": "Log in as"
       }
     }
@@ -35,9 +37,8 @@
     "error": "Invalid code",
     "success": "Verification successful",
     "login": "Login"
-  }
-  ,
-    "forgetPassword": {
+  },
+  "forgetPassword": {
     "back": "Back",
     "title": "Forgot Password",
     "description": "Enter the phone number registered on the platform",
