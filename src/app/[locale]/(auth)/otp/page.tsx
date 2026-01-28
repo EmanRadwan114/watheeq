@@ -1,15 +1,48 @@
+"use client";
 import { OtpForm } from "@/features/auth/components/otp-ui";
-import React from "react";
+import  { useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import AuthButton from "@/components/shared/AuthButton";
 import AuthDesign from "@/features/auth/components/shared/AuthDesign";
 import LogoImage from "@/features/auth/components/shared/LogoImage";
+import { Button } from "@/components/ui/button";
+import OtpExpireTimer from "@/components/ui/otp-expire-timer";
+
 interface IProps {}
 
 const OTP: React.FC<IProps> = ({}) => {
   const t = useTranslations();
     const locale = useLocale();
     const isRTL = locale === "ar";
+    const [timerKey, setTimerKey] = useState(0);
+  const [timerRunning, setTimerRunning] = useState(false);
+  const [canResend, setCanResend] = useState(false);
+
+  const handleVerify = async () => {
+    // هنا تعمل Verify OTP API لو عندك
+    // await verifyOtp()
+
+    // ابدأ العداد بعد الضغط
+    setTimerKey((k) => k + 1);
+    setTimerRunning(true);
+    setCanResend(false);
+  };
+   const handleTimerComplete = () => {
+    setTimerRunning(false);
+    setCanResend(true);
+  };
+
+  const handleResend = async () => {
+    if (!canResend) return;
+
+    // هنا تعمل Resend OTP API
+    // await resendOtp()
+
+    // بعد الإرسال، ابدأ عداد جديد واقفل الزر
+    setTimerKey((k) => k + 1);
+    setTimerRunning(true);
+    setCanResend(false);
+  };
   return <> 
   <AuthDesign>
       <div dir={isRTL ? "rtl" : "ltr"} className="w-full  bg-white">
@@ -26,14 +59,11 @@ const OTP: React.FC<IProps> = ({}) => {
               </p>
               <span className="block text-center text-sm text-third-foreground">**********212</span>
             </div>
-            {/* Form */}
             <div className="space-y-4  text-center flex flex-col justify-center items-center" >
                <OtpForm />
-              <AuthButton
-                label={t("otp.login")}
-                text={t("otp.login")}
+              <Button
                 className="w-1vh bg-secondary"
-              />
+              > {t("otp.login")}</Button>
             </div>
           </div>
         </div>

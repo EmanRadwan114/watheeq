@@ -6,6 +6,7 @@ import AuthPhoneInput from "@/components/shared/input-label";
 import AuthButton from "@/components/shared/AuthButton";
 import AuthDesign from "@/features/auth/components/shared/AuthDesign";
 import LogoImage from "@/features/auth/components/shared/LogoImage";
+import { Button } from "@/components/ui/button";
 const ForgetPassword: React.FC = () => {
   const t = useTranslations();
   const locale = useLocale();
@@ -48,11 +49,7 @@ const ForgetPassword: React.FC = () => {
           
             <div className="space-y-4 ">
               <AuthPhoneInput label={t("forgetPassword.phoneLabel")} />
-              <AuthButton
-                label={t("forgetPassword.next")}
-                text={t("forgetPassword.next")}
-                className="w-full bg-secondary"
-              />
+              <Button  className="w-full bg-secondary">{t("forgetPassword.next")}</Button>
             </div>
           </div>
         </div>
