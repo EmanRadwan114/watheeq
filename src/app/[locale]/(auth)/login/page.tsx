@@ -2,12 +2,16 @@ import LoginForm from "@/features/auth/components/LoginForm";
 import AuthDesign from "@/features/auth/components/shared/AuthDesign";
 import React from "react";
 
+interface IProps {}
+
+
 const Login: React.FC = () => {
   return (
     <AuthDesign>
       <LoginForm />
     </AuthDesign>
   );
+
 };
 
 export default Login;

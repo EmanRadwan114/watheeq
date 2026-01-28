@@ -27,13 +27,21 @@
       }
     }
   },
-  "Otp": {
+  "otp": {
     "title": "Enter Verification Code",
     "description": "A verification code has been sent to your email",
-    "placeholder": "Enter the code",
     "verify": "Verify",
     "resend": "Resend",
     "error": "Invalid code",
-    "success": "Verification successful"
+    "success": "Verification successful",
+    "login": "Login"
+  }
+  ,
+    "forgetPassword": {
+    "back": "Back",
+    "title": "Forgot Password",
+    "description": "Enter the phone number registered on the platform",
+    "phoneLabel": "Phone number",
+    "next": "Next"
   }
 }
