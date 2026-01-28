@@ -32,7 +32,7 @@ const LoginSwitch: React.FC<IProps> = ({ type, setType }) => {
     const params = new URLSearchParams(searchParams.toString());
 
     if (selectedType === "type2") {
-      params.set("type", "type2");
+      params.set("type", "2");
     } else {
       params.delete("type");
     }
