@@ -4,7 +4,7 @@ import { ArrowRight, ArrowLeft } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import AuthPhoneInput from "@/components/shared/input-label";
 import AuthDesign from "@/features/auth/components/shared/AuthDesign";
-import LogoImage from "@/features/auth/components/shared/LogoImage";
+import LogoImage from "@/components/shared/LogoImage";
 import { Button } from "@/components/ui/button";
 const ForgetPassword: React.FC = () => {
   const t = useTranslations();
@@ -12,10 +12,12 @@ const ForgetPassword: React.FC = () => {
   const isRTL = locale === "ar";
   return (
     <AuthDesign>
-      <div dir={isRTL ? "rtl" : "ltr"} className="md:px-4xl md:py-4xl  w-full bg-white">
+      <div
+        dir={isRTL ? "rtl" : "ltr"}
+        className="md:px-4xl md:py-4xl  w-full bg-white"
+      >
         <div className="h-full flex items-center justify-center ">
           <div className="w-full space-y-6">
-            
             <div className={isRTL ? "text-right" : "text-left"}>
               <Link
                 href="/login"
@@ -35,7 +37,7 @@ const ForgetPassword: React.FC = () => {
               </Link>
               <LogoImage />
             </div>
-          
+
             <div className={isRTL ? "text-right" : "text-left"}>
               <h1 className="heading-4 text-fourth-foreground">
                 {t("forgetPassword.title")}
@@ -45,10 +47,11 @@ const ForgetPassword: React.FC = () => {
               </p>
             </div>
 
-          
             <div className="space-y-4 ">
               <AuthPhoneInput label={t("forgetPassword.phoneLabel")} />
-              <Button  className="w-full bg-secondary">{t("forgetPassword.next")}</Button>
+              <Button className="w-full bg-secondary">
+                {t("forgetPassword.next")}
+              </Button>
             </div>
           </div>
         </div>

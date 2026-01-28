@@ -4,14 +4,12 @@ import React from "react";
 
 interface IProps {}
 
-
 const Login: React.FC = () => {
   return (
     <AuthDesign>
       <LoginForm />
     </AuthDesign>
   );
-
 };
 
 export default Login;

@@ -18,13 +18,14 @@ const AuthDesign: React.FC<IProps> = ({ children }) => {
 
   return (
     <main>
-      {/* container */}
-      <section className="flex min-h-screen">
+      <section className="flex min-h-screen overflow-hidden">
         {/* ----------------form */}
-        <div className="flex-1">
+        <div className="flex-1 overflow-y-auto max-h-screen custom-scrollbar">
           <div className="h-full flex flex-col px-md lg:px-16 py-6 gap-3">
             {/* form data */}
-            <div className="flex items-center justify-center">{children}</div>
+            <div className="flex items-center justify-center flex-1">
+              {children}
+            </div>
 
             {/* form footer */}
             <div className="flex flex-col md:flex-row gap-2 mt-auto items-center md:justify-between ">
