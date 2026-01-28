@@ -1,9 +1,11 @@
 import LoginButton from "@/features/auth/components/LoginContainer/loginButton";
-import LoginInputs from "@/features/auth/components/LoginContainer/loginInputs";
+import LoginIndividualsInputs from "@/features/auth/components/LoginContainer/LoginIndividualsInputs";
 
 export default function Home() {
-  return <>
-  <LoginInputs/>
-  <LoginButton/>
-  </>;
+  return (
+    <>
+      <LoginIndividualsInputs />
+      <LoginButton />
+    </>
+  );
 }

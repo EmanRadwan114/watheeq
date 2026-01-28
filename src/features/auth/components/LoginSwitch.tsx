@@ -42,7 +42,7 @@ const LoginSwitch: React.FC<IProps> = ({ type, setType }) => {
   };
 
   return (
-    <div className="flex-1 flex flex-col gap-2.5 mb-2.5">
+    <div className="flex-1 flex flex-col gap-2.5 mb-2xl">
       <Label>{t("login.form-labels.switch-type")}</Label>
       <ButtonGroup
         aria-label="Button group"

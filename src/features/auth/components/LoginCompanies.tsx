@@ -2,6 +2,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useTranslations } from "next-intl";
 import React from "react";
+import LoginCompaniesInputs from "./LoginContainer/LoginIndividualsInputs";
 
 interface IProps {}
 
@@ -12,14 +13,15 @@ const LoginCompanies: React.FC<IProps> = ({}) => {
     text: string;
   }>;
   return (
-    <form>
-      {formItems.map((item) => (
-        <div key={item.id} className="flex flex-col gap-xl">
-          <Label htmlFor={item.id}>{item.text}</Label>
-          <Input />
-        </div>
-      ))}
-    </form>
+    // <form>
+    //   {formItems.map((item) => (
+    //     <div key={item.id} className="flex flex-col gap-xl">
+    //       <Label htmlFor={item.id}>{item.text}</Label>
+    //       <Input />
+    //     </div>
+    //   ))}
+    // </form>
+    <LoginCompaniesInputs />
   );
 };
 
