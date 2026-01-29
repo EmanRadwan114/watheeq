@@ -1,9 +1,7 @@
 "use client";
-
 import React from "react";
 import Countdown from "react-countdown";
 import { useTranslations } from "next-intl";
-
 type Props = {
   durationSeconds?: number;
   startKey: number;          
@@ -17,7 +15,6 @@ export default function OtpExpireTimer({
 }: Props) {
   const t = useTranslations("otp");
 
-  // Renderer
   const renderer = ({
     minutes,
     seconds,
@@ -41,7 +38,7 @@ export default function OtpExpireTimer({
 
   return (
     <Countdown
-      key={startKey} // مهم جدًا: restart
+      key={startKey} 
       date={Date.now() + durationSeconds * 1000}
       renderer={renderer}
       onComplete={onComplete}

@@ -46,7 +46,6 @@ const ForgetPassword: React.FC = () => {
                 {t("forgetPassword.description")}
               </p>
             </div>
-
             <div className="space-y-4 ">
               <FormField label={t("forgetPassword.phoneLabel")} />
               <Button className="w-full bg-secondary">

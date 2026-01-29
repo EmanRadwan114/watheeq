@@ -56,7 +56,6 @@ const FormField: React.FC<FormFieldProps> = ({
             <Image src={icon} alt="field icon" width={20} height={20} />
           </button>
         )}
-
         {rightElement}
       </div>
     </div>
