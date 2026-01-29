@@ -18,6 +18,7 @@
   --secondary-foreground: #333333;
   --third-foreground: #a5a5a5;
   --fourth-foreground: #071638;
+  --fifth-foreground: #293C7C;  
   /* alert colors */
   --green: #07c37b;
   --orange: #f4c724;
@@ -69,12 +70,14 @@
   --color-white: var(--white);
   --color-background: var(--background);
   --color-stroke: var(--stroke);
+  
 
   /* text colors => text-primary-foreground / bg-primary-foreground / border-primary-foreground / fill-primary-foreground */
   --color-primary-foreground: var(--primary-foreground);
   --color-secondary-foreground: var(--secondary-foreground);
   --color-third-foreground: var(--third-foreground);
   --color-fourth-foreground: var(--fourth-foreground);
+  --color-fifth-foreground: var(--fifth-foreground);
 
   /* alert colors => bg-brand-green / text-brand-green / border-brand-green / fill-brand-green */
   --color-brand-green: var(--green);
