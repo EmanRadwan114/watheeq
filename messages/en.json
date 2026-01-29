@@ -60,13 +60,15 @@
     "resend": "Resend",
     "error": "Invalid code",
     "success": "Verification successful",
-    "login": "Login"
+    "login": "Login",
+    "timerPrefix": "The code will expire in",
+    "resending": "Resending..."
   },
   "forgetPassword": {
     "back": "Back",
     "title": "Forgot Password",
-    "description": "Enter the phone number registered on the platform",
-    "phoneLabel": "Phone number",
+    "description": "mobile number registered on the platform",
+    "phoneLabel": "Mobile Number",
     "next": "Next"
   }
 }

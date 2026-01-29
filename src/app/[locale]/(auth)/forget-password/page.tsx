@@ -10,6 +10,15 @@ const ForgetPassword: React.FC = () => {
   const t = useTranslations();
   const locale = useLocale();
   const isRTL = locale === "ar";
+  const labelsT = useTranslations("auth.login.form-labels");
+  const formLabels = labelsT.raw("labels") as {
+    id: string;
+    label: string;
+    type: string;
+    placeholder: string;
+  }[];
+  const phoneField = formLabels[2];
+
   return (
     <AuthDesign>
       <div
@@ -35,7 +44,10 @@ const ForgetPassword: React.FC = () => {
                   </>
                 )}
               </Link>
-              <LogoImage />
+              <Link href={"/login"}>
+               <LogoImage />
+              </Link>
+             
             </div>
 
             <div className={isRTL ? "text-right" : "text-left"}>
@@ -46,9 +58,17 @@ const ForgetPassword: React.FC = () => {
                 {t("forgetPassword.description")}
               </p>
             </div>
-
-            <div className="space-y-4 ">
-              <FormField label={t("forgetPassword.phoneLabel")} />
+            <div className="space-y-4  ">
+              <FormField
+                icon="/icons/saudi-arabia.svg"
+                showDivider={true}
+                rightElement={
+                  <span className="text-sm text-third-foreground">966+</span>
+                }
+                label={phoneField.label}
+                type={phoneField.type}
+                placeholder={phoneField.placeholder}
+              />
               <Button className="w-full bg-secondary">
                 {t("forgetPassword.next")}
               </Button>
