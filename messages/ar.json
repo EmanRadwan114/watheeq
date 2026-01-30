@@ -28,7 +28,7 @@
         "switch-type": "تسجيل الدخول من خلال",
         "labels": [
           {
-            "id": "businessNum",
+            "id": "unifiedNum",
             "label": "رقم السجل التجاري",
             "type": "number",
             "placeholder": "ادخل رقم السجل التجاري"
@@ -40,7 +40,7 @@
             "placeholder": "ادخل كلمة المرور"
           },
           {
-             "id": "phoneNum",
+            "id": "phoneNum",
             "label": "رقم الجوال",
             "type": "number",
             "placeholder": "5XXXXXXXX"
@@ -50,6 +50,15 @@
         "no-account": "ليس لديك حساب؟",
         "remember-me": "تذكرني",
         "forget-pass": "هل نسيت كلمة المرور؟"
+      },
+      "validation-errors": {
+        "unified-num": {
+          "type-msg": "يجب أن يكون رقم صحيح.",
+          "validation-msg": "يجب أن يكون 10 ارقام ويبدأ بـ 7"
+        },
+        "password": {
+          "validation-msg": "يجب أن تحتوي كلمة المرور على ثمانية أحرف، حرف واحد على الأقل ورقم واحد"
+        }
       }
     }
   },

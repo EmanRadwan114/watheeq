@@ -28,7 +28,7 @@
         "switch-type": "Log in as",
         "labels": [
           {
-            "id": "businessNum",
+            "id": "unifiedNum",
             "text": "Unified National Number",
             "type": "number",
             "placeholder": "Enter unified National Number"
@@ -50,6 +50,15 @@
         "no-account": "Don't have an account?",
         "remember-me": "Remember Me",
         "forget-pass": "Forget Password?"
+      },
+      "validation-errors": {
+        "unified-num": {
+          "type-msg": "Must be an integer",
+          "validation-msg": "Must be a 10 digital and start with 7"
+        },
+        "password": {
+          "validation-msg": "The password must contain eight characters, at least one letter, and one number"
+        }
       }
     }
   },
