@@ -14,21 +14,20 @@ interface IProps {}
 
 const LoginValidation: React.FC<IProps> = ({}) => {
   const [checked, setChecked] = useState(false);
+   const v = useTranslations("auth.login.validation-errors");
 
-  const loginSchema = z.object({
-    phoneNumber: z
-      .string()
-      .min(9, { message: "رقم الجوال غير صحيح" })
-      .max(9, { message: "رقم الجوال غير صحيح" }),
-    password: z
-      .string()
-      .min(6, {
-        message: "كلمة المرور غير صحيحه",
-      })
-      .max(6, {
-        message: "كلمة المرور غير صحيحه",
-      }),
-  });
+const loginSchema = z.object({
+  phoneNumber: z
+    .string()
+    .min(9, { message: v("phone.validation-msg") })
+    .max(9, { message: v("phone.validation-msg") }),
+
+  password: z
+    .string()
+    .min(6, { message: v("password.validation-msg") })
+    .max(64, { message: v("password.validation-msg") }),
+});
+
   type ILogin = z.infer<typeof loginSchema>;
   const {
     handleSubmit,

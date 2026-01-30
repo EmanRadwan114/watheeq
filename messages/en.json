@@ -56,6 +56,9 @@
           "type-msg": "Must be an integer",
           "validation-msg": "Must be a 10 digital and start with 7"
         },
+  "phone": {
+    "validation-msg": "Invalid phone number"
+  },
         "password": {
           "validation-msg": "The password must contain eight characters, at least one letter, and one number"
         }
@@ -116,6 +119,17 @@
     "title": "Forgot Password",
     "description": "mobile number registered on the platform",
     "phoneLabel": "Mobile Number",
-    "next": "Next"
+    "next": "Next",
+    "validation-errors": {
+      "phone": {
+        "type-msg": "Invalid phone number",
+        "validation-msg": "Incorrect password"
+      },
+       "password": {
+      "type-msg": "Invalid password",
+      "validation-msg": "Incorrect password",
+      "max-length": "Incorrect password"
+    } 
   }
+}
 }
