@@ -33,8 +33,6 @@ const LoginCompanies: React.FC = () => {
   const onSubmit: SubmitHandler<TLoginSchemaInput> = (data) =>
     console.log(data);
 
-  console.log(errors);
-
   const formLabels = t.raw("form-labels.labels") as {
     id: string;
     label: string;
