@@ -81,7 +81,23 @@
           "placeholder": "Confirm Your New Password"
         }
       ],
-      "submit-text": "Confirm"
+      "submit-text": "Confirm",
+      "validation-errors": {
+        "new-password": {
+          "validation-msg": "Password must be at least eight characters long and include at least one letter and one number"
+        },
+        "confirm-password": {
+          "validation-msg": "Password must be at least eight characters long and include at least one letter and one number"
+        },
+        "password-match": {
+          "validation-msg": "Passwords do not match"
+        }
+      },
+      "success-state": {
+        "title": "Password Reset Successfully",
+        "description": "A new password has been set for your account. You can now log in."
+      },
+      "login": "Login"
     }
   },
   "otp": {

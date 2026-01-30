@@ -22,7 +22,7 @@ const AuthDesign: React.FC<IProps> = ({ children }) => {
       <section className="flex h-screen">
         {/* ----------------form */}
         <div className="max-w-[90%] sm:max-w-[60%] m-auto h-screen lg:flex-1 lg:overflow-y-auto custom-scrollbar">
-          <div className="flex flex-col px-md lg:px-16 gap-y-4xl">
+          <div className="h-full flex flex-col px-md lg:px-16 gap-y-4xl">
             {/* form data */}
             <div className="flex flex-col items-center justify-center flex-1 gap-y-4xl">
               <div></div>
