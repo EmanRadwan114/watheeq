@@ -10,7 +10,9 @@ const ForgetPassword: React.FC = () => {
   const t = useTranslations();
   const locale = useLocale();
   const isRTL = locale === "ar";
+
   const labelsT = useTranslations("auth.login.form-labels");
+
   const formLabels = labelsT.raw("labels") as {
     id: string;
     label: string;
@@ -45,9 +47,8 @@ const ForgetPassword: React.FC = () => {
                 )}
               </Link>
               <Link href={"/login"}>
-               <LogoImage />
+                <LogoImage />
               </Link>
-             
             </div>
 
             <div className={isRTL ? "text-right" : "text-left"}>
