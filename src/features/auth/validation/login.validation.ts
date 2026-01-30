@@ -1,5 +1,5 @@
 import { useTranslations } from "next-intl";
-import { z } from "zod";
+import * as z from "zod";
 
 // login schema for companies
 export const getLoginCompaniesSchema = (

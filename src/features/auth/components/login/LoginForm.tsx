@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import FormHeader from "./FormHeader";
 import LoginCompanies from "./LoginCompanies";
 import LoginIndividuals from "./LoginIndividuals";
@@ -14,8 +14,16 @@ const LoginForm: React.FC = () => {
     loginTypeParam === "2" ? "type2" : "type1",
   );
 
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = "visible";
+    };
+  }, []);
+
   return (
-    <div className="w-full lg:max-w-[95%] xl:max-w-[78%]">
+    <div className="w-full lg:max-w-[95%] xl:max-w-[80%]">
       <FormHeader />
 
       <section className="py-5 px-xl sm:px-7.5 shadow rounded-sm">

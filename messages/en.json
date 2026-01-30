@@ -31,7 +31,7 @@
             "id": "unifiedNum",
             "text": "Unified National Number",
             "type": "number",
-            "placeholder": "Enter unified National Number"
+            "placeholder": "Enter Unified National Number"
           },
           {
             "id": "password",
@@ -60,6 +60,28 @@
           "validation-msg": "The password must contain eight characters, at least one letter, and one number"
         }
       }
+    },
+    "reset-password": {
+      "back": "Back",
+      "header": {
+        "title": "New Password",
+        "description": "Create a strong password to effectively protect your account, and avoid using easy or known passwords."
+      },
+      "form-labels": [
+        {
+          "id": "new-password",
+          "label": "New Password",
+          "type": "password",
+          "placeholder": "Enter New Password"
+        },
+        {
+          "id": "confirm-password",
+          "label": "Confirm Your New password",
+          "type": "password",
+          "placeholder": "Confirm Your New Password"
+        }
+      ],
+      "submit-text": "Confirm"
     }
   },
   "otp": {
