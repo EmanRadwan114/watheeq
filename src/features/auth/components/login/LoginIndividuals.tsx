@@ -5,7 +5,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import React, { useState } from "react";
-import LoginValidation from "../FormValidation/LoginValidation";
+import LoginValidation from "../../FormValidation/LoginValidation";
 
 const LoginIndividuals: React.FC = () => {
   const [checked, setChecked] = useState(false);
@@ -20,7 +20,7 @@ const LoginIndividuals: React.FC = () => {
 
   return (
     <div className="flex flex-col gap-xl">
-   <LoginValidation/>
+      <LoginValidation />
 
       {/* register */}
       <div className="flex gap-sm justify-center">

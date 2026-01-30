@@ -3,6 +3,7 @@ import * as React from "react";
 import Image from "next/image";
 import { Input } from "@/components/ui/input";
 import { Label } from "../ui/label";
+import ValidationErrorMsg from "./ValidationErrorMsg";
 
 interface FormFieldProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string;
@@ -57,7 +58,7 @@ const FormField: React.FC<FormFieldProps> = ({
         <Input className={`${inputClassName}`} {...props} />
 
         {showDivider && <span className="h-5 w-px bg-gray-300" />}
-
+        
         {icon && (
           <button
             type="button"
@@ -71,15 +72,10 @@ const FormField: React.FC<FormFieldProps> = ({
       </div>
       {/* Error Message */}
       {hasError && errorMessage && (
-        <span className=" text-red-500 text-[12px] flex gap-1">
-          <Image src="/icons/danger.svg" alt="danger" width={16} height={16} />
-          {errorMessage}
-        </span>
+        <ValidationErrorMsg errorMessage={errorMessage} />
       )}
     </div>
   );
 };
-
-FormField.displayName = "FormField";
 
 export default FormField;

@@ -1,10 +1,9 @@
 "use client";
-
 import React, { useEffect, useState } from "react";
 import Countdown from "react-countdown";
-import {RefreshCw } from "lucide-react";
 import { useTranslations } from "next-intl";
-
+import reapet from "@/assets/icons/repeat.svg"
+import  Image  from 'next/image';
 interface IProps {
   durationSeconds?: number;
   autoStart?: boolean;
@@ -109,8 +108,9 @@ const OtpExpireTimer: React.FC<IProps> = ({
             : "text-gray-400 cursor-not-allowed"
         }`}
       >
-      
-        <RefreshCw size={16} className="shrink-0" />
+    
+        
+        <Image src={reapet} alt="repeat" width={16} height={16} />
         {isResending ? t("otp.resending") : resendLabel}
       </button>
     </div>
