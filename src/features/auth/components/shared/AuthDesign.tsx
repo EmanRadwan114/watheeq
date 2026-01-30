@@ -19,12 +19,12 @@ const AuthDesign: React.FC<IProps> = ({ children }) => {
 
   return (
     <main>
-      <section className="flex overflow-hidden">
+      <section className="flex lg:overflow-hidden">
         {/* ----------------form */}
-        <div className="flex-1 overflow-y-auto max-h-screen custom-scrollbar">
-          <div className="h-full flex flex-col px-md lg:px-16 gap-y-4xl">
+        <div className="flex-1 max-w-[90%] sm:max-w-[60%] m-auto lg:flex-1 lg:overflow-y-auto lg:max-h-screen custom-scrollbar">
+          <div className="h-full flex flex-col px-md lg:px-16 gap-y-4xl lg:gap-y-0 xl:gap-y-4xl">
             {/* form data */}
-            <div className="flex flex-col items-center justify-center flex-1 gap-y-4xl">
+            <div className="flex flex-col items-center justify-center flex-1 gap-y-4xl lg:gap-y-0 xl:gap-y-4xl">
               <div></div>
               {children}
             </div>

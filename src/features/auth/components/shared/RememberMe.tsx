@@ -10,7 +10,7 @@ const RememberMe: React.FC<IProps> = ({ children }) => {
   const t = useTranslations("auth.login.form-labels");
 
   return (
-    <div className="flex justify-between">
+    <div className="flex flex-col sm:flex-row gap-sm justify-between">
       <div className="flex items-center gap-md">
         {children}
         <span>{t("remember-me")}</span>
