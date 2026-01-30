@@ -14,6 +14,8 @@ interface FormFieldProps extends React.InputHTMLAttributes<HTMLInputElement> {
   labelClassName?: string;
   inputClassName?: string;
   wrapperClassName?: string;
+  hasError?: boolean;
+  errorMessage?: string;
 }
 
 const FormField: React.FC<FormFieldProps> = ({
@@ -26,6 +28,9 @@ const FormField: React.FC<FormFieldProps> = ({
   labelClassName = "",
   inputClassName = "",
   wrapperClassName = "",
+  hasError = false,
+  errorMessage,
+
   ...props
 }) => {
   return (
@@ -33,15 +38,21 @@ const FormField: React.FC<FormFieldProps> = ({
       <Label className={` ${labelClassName}`}>{label}</Label>
       <div
         className={`
-          flex items-center gap-2
-          rounded-sm
-          border border-gray-200
-          bg-white
-          p-lg
-          focus-within:border-secondary
-          transition-colors
-          ${wrapperClassName}
-        `}
+    flex items-center gap-2
+    rounded-sm
+    border
+    bg-white
+    p-lg
+    transition-colors
+
+    ${
+      hasError
+        ? "border-red-500 focus-within:border-red-500"
+        : "border-gray-200 focus-within:border-secondary"
+    }
+
+    ${wrapperClassName}
+  `}
       >
         <Input className={`${inputClassName}`} {...props} />
 
@@ -58,6 +69,13 @@ const FormField: React.FC<FormFieldProps> = ({
         )}
         {rightElement}
       </div>
+      {/* Error Message */}
+      {hasError && errorMessage && (
+        <span className=" text-red-500 text-[12px] flex gap-1">
+          <Image src="/icons/danger.svg" alt="danger" width={16} height={16} />
+          {errorMessage}
+        </span>
+      )}
     </div>
   );
 };

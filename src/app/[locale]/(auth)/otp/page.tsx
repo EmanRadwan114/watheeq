@@ -2,9 +2,7 @@
 import { OtpForm } from "@/features/auth/components/Otp/otp-ui";
 import { useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
-
 import AuthDesign from "@/features/auth/components/shared/AuthDesign";
-import LogoImage from "@/components/shared/LogoImage";
 import { Button } from "@/components/ui/button";
 import OtpExpireTimer from "@/components/ui/otp-expire-timer";
 import OtpHeader from "@/features/auth/components/Otp/FormHeaderOtp";
@@ -51,7 +49,6 @@ const handleVerify = async (e: React.FormEvent<HTMLFormElement>) => {
                   {t("otp.login")}
                 </Button>
                 </div>
-
                 <OtpExpireTimer
                 durationSeconds={60}
                 autoStart={true}

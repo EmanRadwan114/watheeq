@@ -12,6 +12,8 @@ interface PasswordFieldProps extends React.InputHTMLAttributes<HTMLInputElement>
   labelClassName?: string;
   inputClassName?: string;
   wrapperClassName?: string;
+  hasError?: boolean;
+  errorMessage?: string;
 }
 
 const PasswordField: React.FC<PasswordFieldProps> = ({
@@ -22,6 +24,8 @@ const PasswordField: React.FC<PasswordFieldProps> = ({
   labelClassName = "",
   inputClassName = "",
   wrapperClassName = "",
+  hasError = false,
+  errorMessage,
   ...props
 }) => {
   const [showPassword, setShowPassword] = React.useState(false);
@@ -37,6 +41,8 @@ const PasswordField: React.FC<PasswordFieldProps> = ({
       labelClassName={labelClassName}
       inputClassName={inputClassName}
       wrapperClassName={wrapperClassName}
+      hasError={hasError}
+      errorMessage={errorMessage}
       {...props}
     />
   );
