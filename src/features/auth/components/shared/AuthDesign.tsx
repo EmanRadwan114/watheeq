@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import LanguageSwitch from "../../../../components/shared/LanguageSwitch";
 import saudiFlag from "@/assets/icons/saudi-arabia.svg";
+import Copyrights from "@/components/shared/Copyrights";
 
 interface IProps {
   children: ReactNode;
@@ -18,17 +19,18 @@ const AuthDesign: React.FC<IProps> = ({ children }) => {
 
   return (
     <main>
-      <section className="flex min-h-screen overflow-hidden">
+      <section className="flex overflow-hidden">
         {/* ----------------form */}
         <div className="flex-1 overflow-y-auto max-h-screen custom-scrollbar">
-          <div className="h-full flex flex-col px-md lg:px-16 py-6 gap-3">
+          <div className="h-full flex flex-col px-md lg:px-16 gap-y-4xl">
             {/* form data */}
-            <div className="flex items-center justify-center flex-1 py-6xl">
+            <div className="flex flex-col items-center justify-center flex-1 gap-y-4xl">
+              <div></div>
               {children}
             </div>
 
             {/* form footer */}
-            <div className="flex flex-col py-2xl md:flex-row gap-2 mt-auto items-center md:justify-between ">
+            <div className="flex flex-col py-xl md:flex-row gap-2 mt-auto items-center md:justify-between ">
               {/* items */}
               <ul className="flex gap-x-4 md:gap-x-7 gap-y-1.5 order-1 md:order-0 flex-wrap">
                 {footerItems.map((item) => (
@@ -76,9 +78,7 @@ const AuthDesign: React.FC<IProps> = ({ children }) => {
           </div>
 
           {/* copyrights */}
-          <p className="absolute text-md-regular text-white end-5 bottom-6">
-            {t("welcome.copyrights")}
-          </p>
+          <Copyrights />
         </div>
       </section>
     </main>

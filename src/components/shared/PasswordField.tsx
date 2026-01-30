@@ -1,8 +1,8 @@
 "use client";
-import * as React from "react";
 import FormField from "./FormField";
 import eyeOpenIcon from "@/assets/icons/eye-open.svg";
 import eyeClosedIcon from "@/assets/icons/eye-slash.svg";
+import { useState } from "react";
 
 interface PasswordFieldProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string;
@@ -28,7 +28,7 @@ const PasswordField: React.FC<PasswordFieldProps> = ({
   errorMessage,
   ...props
 }) => {
-  const [showPassword, setShowPassword] = React.useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   return (
     <FormField
