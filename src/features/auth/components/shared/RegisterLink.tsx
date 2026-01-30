@@ -6,7 +6,7 @@ const RegisterLink: React.FC = () => {
   const t = useTranslations("auth.login.form-labels");
 
   return (
-    <div className="flex gap-sm justify-center">
+    <div className="flex flex-col items-center sm:flex-row sm:items-stretch gap-sm sm:justify-center">
       <span>{t("no-account")}</span>
       <Link href="/register" className="text-brand-blue">
         {t("create-account")}

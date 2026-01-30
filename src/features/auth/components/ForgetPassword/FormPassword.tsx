@@ -18,7 +18,6 @@ type TForgetPasswordInput = {
 const ForgetPasswordForm: React.FC<IProps> = ({ onSubmitSuccess }) => {
   const t = useTranslations();
 
-  // ✅ schema (لو عندك validation file خارجي، استعمله بدل ده)
   const schema = z.object({
     phone: z
       .string()

@@ -63,12 +63,12 @@ const FormField: React.FC<FormFieldProps> = ({
           <button
             type="button"
             onClick={onIconClick}
-            className={onIconClick ? "cursor-pointer" : ""}
+            className={`${onIconClick ? "cursor-pointer" : ""}`}
           >
             <Image src={icon} alt="field icon" width={20} height={20} />
           </button>
         )}
-        {rightElement}
+        <span className="body-sm-regular">{rightElement}</span>
       </div>
       {/* Error Message */}
       {hasError && errorMessage && (

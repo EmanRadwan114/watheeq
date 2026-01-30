@@ -13,7 +13,6 @@ interface IProps {}
 const OTP: React.FC<IProps> = ({}) => {
   const t = useTranslations();
   const locale = useLocale();
-  const isRTL = locale === "ar";
   const [timerKey, setTimerKey] = useState(0);
   const [timerRunning, setTimerRunning] = useState(false);
   const [canResend, setCanResend] = useState(false);
@@ -38,7 +37,7 @@ const handleVerify = async (e: React.FormEvent<HTMLFormElement>) => {
   return (
     <>
       <AuthDesign>
-        <div dir={isRTL ? "rtl" : "ltr"} className="w-full  bg-white">
+        <div  className="w-full  bg-white">
           <div className="h-full flex items-center justify-center">
             <div className="w-full space-y-6">
               <OtpHeader  />
