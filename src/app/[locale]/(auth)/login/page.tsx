@@ -1,8 +1,6 @@
-import LoginForm from "@/features/auth/components/LoginForm";
+import LoginForm from "@/features/auth/components/login/LoginForm";
 import AuthDesign from "@/features/auth/components/shared/AuthDesign";
 import React from "react";
-
-interface IProps {}
 
 const Login: React.FC = () => {
   return (

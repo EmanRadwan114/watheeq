@@ -1,10 +1,10 @@
 "use client";
 
 import React, { useState } from "react";
-import LoginSwitch from "./LoginSwitch";
 import FormHeader from "./FormHeader";
 import LoginCompanies from "./LoginCompanies";
 import LoginIndividuals from "./LoginIndividuals";
+import LoginSwitch from "./LoginSwitch";
 
 const LoginForm: React.FC = () => {
   const [type, setType] = useState("type1");
@@ -17,7 +17,7 @@ const LoginForm: React.FC = () => {
         <LoginSwitch type={type} setType={setType} />
 
         <div>
-          {type === "type2" ? <LoginCompanies /> : <LoginIndividuals/>}
+          {type === "type2" ? <LoginCompanies /> : <LoginIndividuals />}
         </div>
       </section>
     </div>

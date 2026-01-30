@@ -4,8 +4,8 @@ import { Button } from "@/components/ui/button";
 import { ButtonGroup } from "@/components/ui/button-group";
 import React from "react";
 import { useTranslations } from "use-intl";
-import User from "./icons/User";
-import Building from "./icons/Building";
+import User from "@/features/auth/components/icons/User";
+import Building from "@/features/auth/components/icons/Building";
 import { Label } from "@/components/ui/label";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
