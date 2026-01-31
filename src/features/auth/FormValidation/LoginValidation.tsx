@@ -71,7 +71,7 @@ const LoginValidation: React.FC<IProps> = ({}) => {
           {...register("phoneNumber", {
           
             onChange: (e) => {
-              e.target.value = e.target.value.replace(/\D/g, "").slice(0, 9);
+              e.target.value = e.target.value.replace(/\D/g, "").slice(0, 8);
             },
           })}
         />
