@@ -8,6 +8,7 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 import React, { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
+import saudiIcon from "../../../assets/icons/saudi-arabia.svg"
 import z from "zod";
 
 interface IProps {}
@@ -51,7 +52,7 @@ const loginSchema = z.object({
     <>
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-xl">
         <FormField
-          icon="/icons/saudi-arabia.svg"
+          icon={saudiIcon}
           showDivider={true}
           rightElement="966+"
           label={formLabels[2].label}
