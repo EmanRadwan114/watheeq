@@ -64,7 +64,7 @@
             },
         "password": {
           "required": "This field is required",
-          "validation-msg": "Incorrect password"
+          "validation-msg": "The password output must contain characters, at least one letter and one number."
         }
       }
     },
