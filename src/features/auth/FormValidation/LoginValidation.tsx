@@ -1,3 +1,5 @@
+"use client";
+
 import FormField from "@/components/shared/FormField";
 import PasswordField from "@/components/shared/PasswordField";
 import { Button } from "@/components/ui/button";
@@ -5,89 +7,105 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Link } from "@/i18n/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl";
-import Image from "next/image";
-import React, { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import saudiIcon from "../../../assets/icons/saudi-arabia.svg"
-import z from "zod";
+import {
+  getLoginIndividualsSchema,
+  TLoginIndividualsInput,
+} from "../validation/login-individuals.validation";
+import { useState } from "react";
+
 
 interface IProps {}
 
 const LoginValidation: React.FC<IProps> = ({}) => {
   const [checked, setChecked] = useState(false);
-   const v = useTranslations("auth.login.validation-errors");
 
-const loginSchema = z.object({
-  phoneNumber: z
-    .string()
-    .min(9, { message: v("phone.validation-msg") })
-    .max(9, { message: v("phone.validation-msg") }),
+ 
+  const tLogin = useTranslations("auth.login");
+  const tLabels = useTranslations("auth.login.form-labels");
 
-  password: z
-    .string()
-    .min(6, { message: v("password.validation-msg") })
-    .max(64, { message: v("password.validation-msg") }),
-});
+  const loginIndividualsSchema = getLoginIndividualsSchema(tLogin);
 
-  type ILogin = z.infer<typeof loginSchema>;
   const {
-    handleSubmit,
     register,
-    formState: { errors, isSubmitting },
-  } = useForm<ILogin>({
+    handleSubmit,
+    formState: { errors, isValid, isSubmitting },
+  } = useForm<TLoginIndividualsInput>({
+    resolver: zodResolver(loginIndividualsSchema),
     mode: "onChange",
-    resolver: zodResolver(loginSchema),
   });
-  const onSubmit: SubmitHandler<ILogin> = (data) => {
-    console.log(data);
+
+  const onSubmit: SubmitHandler<TLoginIndividualsInput> = (data) => {
+    console.log({
+      ...data,
+      fullPhone: `966${data.phoneNumber}`,
+    });
   };
-  const t = useTranslations("auth.login.form-labels");
-  const formLabels = t.raw("labels") as {
+
+  const formLabels = tLabels.raw("labels") as {
     id: string;
-    label: string;
+    label?: string;
+    text?: string;
     type: string;
     placeholder: string;
   }[];
+
+  const phoneField = formLabels.find((x) => x.id === "phoneNum");
+  const passwordField = formLabels.find((x) => x.id === "password");
+
   return (
-    <>
-      <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-xl">
+    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-xl">
+      {phoneField && (
         <FormField
           icon={saudiIcon}
           showDivider={true}
-          rightElement="966+"
-          label={formLabels[2].label}
+          rightElement={
+            '+966'
+          }
+          label={(phoneField.label ?? phoneField.text) as string}
           type={formLabels[2].type}
-          placeholder={formLabels[2].placeholder}
-          hasError={!!errors.phoneNumber}
+          placeholder={phoneField.placeholder}
           errorMessage={errors.phoneNumber?.message}
-          {...register("phoneNumber", { required: true })}
+          hasError={!!errors.phoneNumber?.message}
+          {...register("phoneNumber", {
+          
+            onChange: (e) => {
+              e.target.value = e.target.value.replace(/\D/g, "").slice(0, 9);
+            },
+          })}
         />
+      )}
+
+      {passwordField && (
         <PasswordField
-          label={formLabels[1].label}
-          placeholder={formLabels[1].placeholder}
-          hasError={!!errors.password}
+          label={(passwordField.label ?? passwordField.text) as string}
+          placeholder={passwordField.placeholder}
           errorMessage={errors.password?.message}
-          {...register("password", { required: true })}
+            hasError={!!errors.password?.message}
+          {...register("password")}
         />
-        {/* remember me */}
-        <div className="flex justify-between">
-          <div className="flex items-center gap-md">
-            <Checkbox
-              checked={checked}
-              onCheckedChange={() => setChecked((prev) => !prev)}
-              id="remember"
-            />
-            <span>{t("remember-me")}</span>
-          </div>
-          <Link href="/forget-password" className="text-brand-blue">
-            {t("forget-pass")}
-          </Link>
+      )}
+
+      <div className="flex justify-between">
+        <div className="flex items-center gap-md">
+          <Checkbox
+            checked={checked}
+            onCheckedChange={() => setChecked((prev) => !prev)}
+            id="remember"
+          />
+          <span>{tLabels("remember-me")}</span>
         </div>
-        <Button disabled={isSubmitting} type="submit">
-          {t("header")}
-        </Button>
-      </form>
-    </>
+
+        <Link href="/forget-password" className="text-brand-blue">
+          {tLabels("forget-pass")}
+        </Link>
+      </div>
+
+      <Button disabled={!isValid || isSubmitting} type="submit">
+        {tLabels("header")}
+      </Button>
+    </form>
   );
 };
 

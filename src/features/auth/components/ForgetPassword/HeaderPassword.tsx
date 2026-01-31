@@ -3,7 +3,6 @@ import React from "react";
 import Link from "next/link";
 import { ArrowRight, ArrowLeft } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
-
 import LogoImage from "@/components/shared/LogoImage";
 
 interface IProps {}

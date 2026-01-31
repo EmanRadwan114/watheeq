@@ -1,30 +1,27 @@
 "use client";
+
 import React from "react";
 import { useTranslations } from "next-intl";
-import FormField from "@/components/shared/FormField";
-import { Button } from "@/components/ui/button";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
+
+import FormField from "@/components/shared/FormField";
+import { Button } from "@/components/ui/button";
+import { getForgetPasswordSchema,TForgetPasswordInput } from "../../validation/forget-password.validation";
+
+
 
 interface IProps {
   onSubmitSuccess?: (phone: string) => void;
 }
 
-type TForgetPasswordInput = {
-  phone: string;
-};
-
 const ForgetPasswordForm: React.FC<IProps> = ({ onSubmitSuccess }) => {
-  const t = useTranslations();
+  const tLogin = useTranslations("auth.login");
+  const tLabels = useTranslations("auth.login.form-labels");
+  const tForget = useTranslations(); 
 
-  const schema = z.object({
-    phone: z
-      .string()
-      .min(9, { message: t("forgetPassword.validation-errors.phone.validation-msg") })
-      .max(9, { message: t("forgetPassword.validation-errors.phone.validation-msg") }),
-  });
-
+  const schema = getForgetPasswordSchema(tLogin);
+  
   const {
     register,
     handleSubmit,
@@ -32,46 +29,52 @@ const ForgetPasswordForm: React.FC<IProps> = ({ onSubmitSuccess }) => {
   } = useForm<TForgetPasswordInput>({
     resolver: zodResolver(schema),
     mode: "onChange",
-    defaultValues: { phone: "" },
+    defaultValues: { phoneNumber: "" },
   });
 
-  const labelsT = useTranslations("auth.login.form-labels");
-  const formLabels = labelsT.raw("labels") as {
+  const formLabels = tLabels.raw("labels") as {
     id: string;
-    label: string;
+    label?: string;
+    text?: string;
     type: string;
     placeholder: string;
   }[];
 
-  const phoneField = formLabels[2];
+  const phoneField = formLabels.find((x) => x.id === "phoneNum");
 
   const onSubmit: SubmitHandler<TForgetPasswordInput> = async (data) => {
-    // لو شفناها call API هنا
-    console.log("ForgetPassword:", data);
-
-    onSubmitSuccess?.(data.phone);
+    const fullPhone = `966${data.phoneNumber}`;
+    console.log("ForgetPassword:", { ...data, fullPhone });
+    onSubmitSuccess?.(data.phoneNumber);
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-      <FormField
-        icon="/icons/saudi-arabia.svg"
-        showDivider={true}
-        rightElement={<span className="text-sm text-third-foreground">966+</span>}
-        label={phoneField.label}
-        type={phoneField.type}
-        placeholder={phoneField.placeholder}
-        hasError={!!errors.phone}
-        errorMessage={errors.phone?.message}
-        {...register("phone", { required: true })}
-      />
+      {phoneField && (
+        <FormField
+          icon="/icons/saudi-arabia.svg"
+          showDivider={true}
+          rightElement='+966'
+          label={(phoneField.label ?? phoneField.text) as string}
+          type={formLabels[2].type}
+          placeholder={phoneField.placeholder}
+          hasError={!!errors.phoneNumber?.message}
+          errorMessage={errors.phoneNumber?.message}
+          {...register("phoneNumber", {
+          
+            onChange: (e) => {
+              e.target.value = e.target.value.replace(/\D/g, "").slice(0, 9);
+            },
+          })}
+        />
+      )}
 
       <Button
         type="submit"
         className="w-full bg-secondary"
         disabled={!isValid || isSubmitting}
       >
-        {t("forgetPassword.next")}
+        {tForget("forgetPassword.next")}
       </Button>
     </form>
   );

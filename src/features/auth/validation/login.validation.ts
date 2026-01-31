@@ -1,7 +1,7 @@
 import { useTranslations } from "next-intl";
 import * as z from "zod";
-
 // login schema for companies
+
 export const getLoginCompaniesSchema = (
   t: ReturnType<typeof useTranslations<"auth.login">>,
 ) => {

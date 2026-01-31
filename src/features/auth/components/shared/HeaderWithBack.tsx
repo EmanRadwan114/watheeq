@@ -1,3 +1,4 @@
+'use client' ;
 import React from "react";
 import BackBtn from "./BackBtn";
 import LogoImage from "@/components/shared/LogoImage";

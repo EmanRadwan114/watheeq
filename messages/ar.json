@@ -53,14 +53,17 @@
       },
       "validation-errors": {
         "unified-num": {
+          "required": "هذا الحقل مطلوب",
           "type-msg": "يجب أن يكون رقم صحيح.",
           "validation-msg": "يجب أن يكون 10 ارقام ويبدأ بـ 7"
         },
         "phone": {
+            "required": "هذا الحقل مطلوب",
             "validation-msg": "رقم الجوال غير صحيح"
               },
         "password": {
-          "validation-msg": "يجب أن تحتوي كلمة المرور على ثمانية أحرف، وحرف واحد على الأقل، ورقم واحد"
+          "required": "هذا الحقل مطلوب",
+          "validation-msg": "كلمة المرور غير صحيحة"
         }
       }
     },
@@ -120,17 +123,6 @@
     "title": "نسيت كلمة المرور",
     "description": "ادخل رقم الجوال المسجل في المنصة",
     "phoneLabel": "رقم الجوال",
-    "next": "التالي",
-    "validation-errors": {
-      "phone": {
-        "type-msg": "رقم الجوال غير صحيح",
-        "validation-msg": "كلمة المرور غير صحيحة"
-      },
-      "password": {
-      "type-msg": "Invalid password",
-      "validation-msg": "Incorrect password",
-      "max-length": "Incorrect password"
-    }
-  }
+    "next": "التالي"
 }
 }
