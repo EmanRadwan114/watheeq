@@ -8,12 +8,13 @@ import { Link } from "@/i18n/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl";
 import { useForm, SubmitHandler } from "react-hook-form";
-
+import saudiIcon from "../../../assets/icons/saudi-arabia.svg"
 import {
   getLoginIndividualsSchema,
   TLoginIndividualsInput,
 } from "../validation/login-individuals.validation";
 import { useState } from "react";
+
 
 interface IProps {}
 
@@ -57,7 +58,7 @@ const LoginValidation: React.FC<IProps> = ({}) => {
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-xl">
       {phoneField && (
         <FormField
-          icon="/icons/saudi-arabia.svg"
+          icon={saudiIcon}
           showDivider={true}
           rightElement={
             '+966'
