@@ -1,3 +1,4 @@
+
 import React from "react";
 import logo from "@/assets/images/watheeq.webp";
 import Image from "next/image";

@@ -53,16 +53,57 @@
       },
       "validation-errors": {
         "unified-num": {
+          "required": "هذا الحقل مطلوب",
           "type-msg": "يجب أن يكون رقم صحيح.",
           "validation-msg": "يجب أن يكون 10 ارقام ويبدأ بـ 7"
         },
         "phone": {
+            "required": "هذا الحقل مطلوب",
             "validation-msg": "رقم الجوال غير صحيح"
               },
         "password": {
+          "required": "هذا الحقل مطلوب",
           "validation-msg": "كلمة المرور غير صحيحة"
         }
       }
+    },
+    "reset-password": {
+      "back": "رجوع",
+      "header": {
+        "title": "كلمة المرور الجديدة",
+        "description": "قم بإنشاء كلمة مرور قوية لحماية حسابك بشكل فعال، وتجنب استخدام كلمات مرور سهلة أو معروفة."
+      },
+      "form-labels": [
+        {
+          "id": "new-password",
+          "label": "كلمة المرور الجديدة",
+          "type": "password",
+          "placeholder": "ادخل كلمة مرور جديدة"
+        },
+        {
+          "id": "confirm-password",
+          "label": "تأكيد كلمة المرور الخاصة بك",
+          "type": "password",
+          "placeholder": "تأكيد كلمة المرور"
+        }
+      ],
+      "submit-text": "تأكيد",
+      "validation-errors": {
+        "new-password": {
+          "validation-msg": "يجب أن تحتوي كلمة المرور على ثمانية أحرف، حرف واحد على الأقل ورقم واحد"
+        },
+        "confirm-password": {
+          "validation-msg": "يجب أن تحتوي كلمة المرور على ثمانية أحرف، حرف واحد على الأقل ورقم واحد"
+        },
+        "password-match": {
+          "validation-msg": "الرقم السري غير متطابق"
+        }
+      },
+      "success-state": {
+        "title": "تم إعادة تعيين كلمة المرور بنجاح",
+        "description": "لقد تم إعادة تعيين كلمة مرور جديدة لحسابك. يمكنك الآن تسجيل الدخول."
+      },
+      "login": "تسجيل الدخول"
     }
   },
 
@@ -82,17 +123,6 @@
     "title": "نسيت كلمة المرور",
     "description": "ادخل رقم الجوال المسجل في المنصة",
     "phoneLabel": "رقم الجوال",
-    "next": "التالي",
-    "validation-errors": {
-      "phone": {
-        "type-msg": "رقم الجوال غير صحيح",
-        "validation-msg": "كلمة المرور غير صحيحة"
-      },
-      "password": {
-      "type-msg": "Invalid password",
-      "validation-msg": "Incorrect password",
-      "max-length": "Incorrect password"
-    }
-  }
+    "next": "التالي"
 }
 }
