@@ -9,7 +9,9 @@ export const getLoginIndividualsSchema = (
   return z.object({
     phoneNumber: getSaudiPhoneSchema(t),
 
-    password: z.string().regex(
+    password: z.string()
+    .min(1, t("validation-errors.phone.required")) 
+    .regex(
       /^(?=.*[A-Za-z])(?=.*\d).{8,}$/,
       t("validation-errors.password.validation-msg"),
     ),
