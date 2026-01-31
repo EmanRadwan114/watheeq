@@ -56,11 +56,11 @@
           "type-msg": "Must be an integer",
           "validation-msg": "Must be a 10 digital and start with 7"
         },
-  "phone": {
-    "validation-msg": "Invalid phone number"
-  },
+      "phone": {
+              "validation-msg": "Incorrect Phone Number"
+            },
         "password": {
-          "validation-msg": "The password must contain eight characters, at least one letter, and one number"
+          "validation-msg": "Incorrect password"
         }
       }
     }
