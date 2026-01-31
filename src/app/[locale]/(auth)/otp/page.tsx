@@ -1,64 +1,81 @@
 "use client";
+
 import { OtpForm } from "@/features/auth/components/Otp/otp-ui";
 import { useState } from "react";
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import AuthDesign from "@/features/auth/components/shared/AuthDesign";
 import { Button } from "@/components/ui/button";
 import OtpExpireTimer from "@/components/ui/otp-expire-timer";
 import OtpHeader from "@/features/auth/components/Otp/FormHeaderOtp";
 
+const OTP: React.FC = () => {
+  const t = useTranslations("otp");
 
-interface IProps {}
-
-const OTP: React.FC<IProps> = ({}) => {
-  const t = useTranslations();
-  const locale = useLocale();
-  const [timerKey, setTimerKey] = useState(0);
-  const [timerRunning, setTimerRunning] = useState(false);
-  const [canResend, setCanResend] = useState(false);
- const [otp, setOtp] = useState("");
+  const [otp, setOtp] = useState("");
+  const [startSignal, setStartSignal] = useState(0);
+  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+const [isOtpDisabled, setIsOtpDisabled] = useState(false);
   const isOtpComplete = otp.length === 6;
 
-const handleVerify = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleVerify = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!isOtpComplete) return;
+    console.log("OTP:", otp);
+    setIsButtonDisabled(true);
+    setStartSignal((s) => s + 1);
+    setIsOtpDisabled(true); 
+    setOtp("");
 
-    // ✅ Verify OTP API
-    // await verifyOtp({ otp })
+  
+    
   };
 
   const handleResend = async () => {
-    // ✅ Resend OTP API
-    // await resendOtp()
-
-    // (اختياري) تفريغ الخانات بعد resend
-    setOtp("");
+    try {
+      //  Resend OTP API 
+    
+      setOtp("");
+    } catch (err) {
+      console.error("Resend OTP failed:", err);
+    }
   };
+
   return (
-    <>
-      <AuthDesign>
-        <div  className="w-full  bg-white">
-          <div className="h-full flex items-center justify-center">
-            <div className="w-full space-y-6">
-              <OtpHeader  />
-              <form onSubmit={handleVerify} className="w-full  space-y-4">
-                <OtpForm value={otp}  onChange={setOtp}/>
-                <div className="flex items-center justify-center">
-                <Button  type="submit" className="w-90 center bg-secondary">
-                  {t("otp.login")}
+    <AuthDesign>
+      <div className="w-full bg-white">
+        <div className="h-full flex items-center justify-center">
+          <div className="w-full space-y-6">
+            <OtpHeader />
+
+            <form onSubmit={handleVerify} className="w-full space-y-4">
+              <OtpForm value={otp} onChange={setOtp} disabled={isOtpDisabled} />
+
+              <div className="flex items-center justify-center">
+                <Button
+                  type="submit"
+                  className="w-90 center bg-secondary"
+                  disabled={isButtonDisabled || !isOtpComplete}
+                >
+                  {t("login")}
                 </Button>
-                </div>
-                <OtpExpireTimer
+              </div>
+
+              <OtpExpireTimer
                 durationSeconds={60}
-                autoStart={true}
+                autoStart={false}
+                startSignal={startSignal}
                 onResend={handleResend}
+                onFinished={() => {
+    setIsButtonDisabled(false); 
+    setIsOtpDisabled(false);   
+  }}
+                storageKey="otp_end_at_verify" // ✅ ثابت حتى مع تغيير اللغة
               />
-              </form>
-            </div>
+            </form>
           </div>
         </div>
-      </AuthDesign>
-    </>
+      </div>
+    </AuthDesign>
   );
 };
 

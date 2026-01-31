@@ -60,7 +60,7 @@
         },
       "phone": {
               "required": "This field is required",
-              "validation-msg": "Incorrect Phone Number"
+              "validation-msg": "Please enter a valid phone number (EX: 5xxxxxxxx)"
             },
         "password": {
           "required": "This field is required",
@@ -116,7 +116,11 @@
     "success": "Verification successful",
     "login": "Login",
     "timerPrefix": "The code will expire in",
-    "resending": "Resending..."
+    "resending": "Resending...",
+    "errors": {
+      "required": "This field is required",
+      "invalid": "otp is Incorrect"
+    }
   },
   "forgetPassword": {
     "back": "Back",
