@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import HeaderWithBack from "../shared/HeaderWithBack";
 import { useTranslations } from "next-intl";
 import PasswordField from "@/components/shared/PasswordField";
@@ -19,6 +19,10 @@ const ResetPasswordForm: React.FC = () => {
   const [isResetSuccess, setIsResetSuccess] = useState(false);
 
   const t = useTranslations("auth.reset-password");
+
+  useEffect(() => {
+    sessionStorage.removeItem("otp_end_at_verify");
+  }, []);
 
   // react-hook-form & zod
   const ResetPasswordSchema = getResetPassSchema(t);

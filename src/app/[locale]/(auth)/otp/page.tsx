@@ -25,9 +25,7 @@ const OTP: React.FC = () => {
 
     if (!isOtpComplete) return;
     console.log("OTP:", otp);
-    setIsButtonDisabled(true);
     setStartSignal((s) => s + 1);
-    setIsOtpDisabled(true);
     setOtp("");
   };
 

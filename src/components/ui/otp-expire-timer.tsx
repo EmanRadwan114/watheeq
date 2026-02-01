@@ -46,35 +46,22 @@ const OtpExpireTimer: React.FC<IProps> = ({
   // ✅ اقرأ endAt من sessionStorage عند mount (عشان تغيير اللغة ما يعملش reset)
   useEffect(() => {
     const saved = sessionStorage.getItem(storageKey);
+    const now = Date.now();
 
     if (saved) {
       const ts = Number(saved);
-
-      if (!Number.isNaN(ts) && ts > Date.now()) {
+      if (ts > now) {
         setEndAt(ts);
         return;
       }
-
-      // لو انتهى
-      sessionStorage.removeItem(storageKey);
-      setEndAt(null);
-      return;
     }
 
-    // مفيش endAt مخزن
     if (autoStart) {
-      const ts = Date.now() + durationSeconds * 1000;
+      const ts = now + durationSeconds * 1000;
       sessionStorage.setItem(storageKey, String(ts));
       setEndAt(ts);
-    } else {
-      setEndAt(null);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-
-    return () => {
-      sessionStorage.removeItem(storageKey);
-    };
-  }, []);
+  }, [storageKey, autoStart, durationSeconds]);
 
   // ✅ يبدأ لما startSignal يتغير (Verify اتضغط)
   useEffect(() => {
@@ -144,7 +131,6 @@ const OtpExpireTimer: React.FC<IProps> = ({
         />
       )}
 
-      {/* ✅ Resend يظهر فقط بعد انتهاء العداد (مفصول زي الأول) */}
       <button
         type="button"
         onClick={handleResendClick}
