@@ -4,24 +4,20 @@ import FormField from "@/components/shared/FormField";
 import PasswordField from "@/components/shared/PasswordField";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Link } from "@/i18n/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl";
 import { useForm, SubmitHandler } from "react-hook-form";
-import saudiIcon from "../../../assets/icons/saudi-arabia.svg"
+import saudiIcon from "@/assets/icons/saudi-arabia.svg";
 import {
   getLoginIndividualsSchema,
   TLoginIndividualsInput,
 } from "../validation/login-individuals.validation";
 import { useState } from "react";
+import RememberMe from "../components/shared/RememberMe";
 
-
-interface IProps {}
-
-const LoginValidation: React.FC<IProps> = ({}) => {
+const LoginValidation: React.FC = () => {
   const [checked, setChecked] = useState(false);
 
- 
   const tLogin = useTranslations("auth.login");
   const tLabels = useTranslations("auth.login.form-labels");
 
@@ -30,7 +26,7 @@ const LoginValidation: React.FC<IProps> = ({}) => {
   const {
     register,
     handleSubmit,
-    formState: { errors, isValid, isSubmitting },
+    formState: { errors, isValid },
   } = useForm<TLoginIndividualsInput>({
     resolver: zodResolver(loginIndividualsSchema),
     mode: "onChange",
@@ -60,20 +56,13 @@ const LoginValidation: React.FC<IProps> = ({}) => {
         <FormField
           icon={saudiIcon}
           showDivider={true}
-          rightElement={
-            '+966'
-          }
+          rightElement={"+966"}
           label={(phoneField.label ?? phoneField.text) as string}
           type={formLabels[2].type}
           placeholder={phoneField.placeholder}
           errorMessage={errors.phoneNumber?.message}
           hasError={!!errors.phoneNumber?.message}
-          {...register("phoneNumber", {
-          
-            onChange: (e) => {
-              e.target.value = e.target.value.replace(/\D/g, "").slice(0, 8);
-            },
-          })}
+          {...register("phoneNumber")}
         />
       )}
 
@@ -82,27 +71,21 @@ const LoginValidation: React.FC<IProps> = ({}) => {
           label={(passwordField.label ?? passwordField.text) as string}
           placeholder={passwordField.placeholder}
           errorMessage={errors.password?.message}
-            hasError={!!errors.password?.message}
+          hasError={!!errors.password?.message}
           {...register("password")}
         />
       )}
 
-      <div className="flex justify-between">
-        <div className="flex items-center gap-md">
-          <Checkbox
-            checked={checked}
-            onCheckedChange={() => setChecked((prev) => !prev)}
-            id="remember"
-          />
-          <span>{tLabels("remember-me")}</span>
-        </div>
+      {/* remember me */}
+      <RememberMe>
+        <Checkbox
+          checked={checked}
+          onCheckedChange={() => setChecked((prev) => !prev)}
+          id="remember"
+        />
+      </RememberMe>
 
-        <Link href="/forget-password" className="text-brand-blue">
-          {tLabels("forget-pass")}
-        </Link>
-      </div>
-
-      <Button disabled={!isValid || isSubmitting} type="submit">
+      <Button type="submit" disabled={!isValid}>
         {tLabels("header")}
       </Button>
     </form>

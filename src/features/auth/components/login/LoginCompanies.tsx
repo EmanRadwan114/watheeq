@@ -11,7 +11,7 @@ import { SubmitHandler } from "react-hook-form";
 import {
   getLoginCompaniesSchema,
   TLoginSchemaInput,
-} from "../../validation/login.validation";
+} from "../../validation/login-companies.validation";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 const LoginCompanies: React.FC = () => {

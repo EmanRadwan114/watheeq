@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import HeaderWithBack from "../shared/HeaderWithBack";
 import { useTranslations } from "next-intl";
 import PasswordField from "@/components/shared/PasswordField";
@@ -20,6 +20,10 @@ const ResetPasswordForm: React.FC = () => {
 
   const t = useTranslations("auth.reset-password");
 
+  useEffect(() => {
+    sessionStorage.removeItem("otp_end_at_verify");
+  }, []);
+
   // react-hook-form & zod
   const ResetPasswordSchema = getResetPassSchema(t);
 
@@ -37,6 +41,7 @@ const ResetPasswordForm: React.FC = () => {
     setIsResetSuccess(true);
   };
 
+  // form labels
   const formLabels = t.raw("form-labels") as Array<{
     id: string;
     label: string;
@@ -65,7 +70,7 @@ const ResetPasswordForm: React.FC = () => {
 
   return (
     <div className="w-full lg:max-w-[80%] xl:max-w-[65%]">
-      <HeaderWithBack translationKey="reset-password.header" />
+      <HeaderWithBack translationKey="auth.reset-password.header" />
 
       <form className="flex flex-col gap-xl" onSubmit={handleSubmit(onSubmit)}>
         {newPassword && (

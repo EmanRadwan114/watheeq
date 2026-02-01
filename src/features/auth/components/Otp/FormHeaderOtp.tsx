@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import LogoImage from "@/components/shared/LogoImage";
 
 interface IProps {
@@ -9,18 +9,12 @@ interface IProps {
 
 const OtpHeader: React.FC<IProps> = ({ maskedPhone = "**********212" }) => {
   const t = useTranslations();
-  const locale = useLocale();
-  const isRTL = locale === "ar";
 
   return (
     <>
       <LogoImage />
 
-      <div
-        className={`flex flex-col justify-center items-center ${
-          isRTL ? "text-right" : "text-left"
-        }`}
-      >
+      <div className={`flex flex-col justify-center items-center`}>
         <h1 className="heading-4 text-fourth-foreground">{t("otp.title")}</h1>
 
         <p className="mb-lg mt-xl text-sm text-third-foreground">

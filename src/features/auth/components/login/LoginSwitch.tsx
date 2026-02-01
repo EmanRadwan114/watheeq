@@ -7,7 +7,8 @@ import { useTranslations } from "use-intl";
 import User from "@/features/auth/components/icons/User";
 import Building from "@/features/auth/components/icons/Building";
 import { Label } from "@/components/ui/label";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { usePathname, useRouter } from "@/i18n/navigation";
+import { useSearchParams } from "next/navigation";
 
 interface IProps {
   type: string;
