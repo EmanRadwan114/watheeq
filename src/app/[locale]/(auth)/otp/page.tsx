@@ -7,33 +7,33 @@ import AuthDesign from "@/features/auth/components/shared/AuthDesign";
 import { Button } from "@/components/ui/button";
 import OtpExpireTimer from "@/components/ui/otp-expire-timer";
 import OtpHeader from "@/features/auth/components/Otp/FormHeaderOtp";
+import { useRouter } from "@/i18n/navigation";
 
 const OTP: React.FC = () => {
   const t = useTranslations("otp");
+  const router = useRouter();
 
   const [otp, setOtp] = useState("");
   const [startSignal, setStartSignal] = useState(0);
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
-const [isOtpDisabled, setIsOtpDisabled] = useState(false);
+  const [isOtpDisabled, setIsOtpDisabled] = useState(false);
   const isOtpComplete = otp.length === 6;
 
   const handleVerify = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    router.push("/reset-password");
+
     if (!isOtpComplete) return;
     console.log("OTP:", otp);
     setIsButtonDisabled(true);
     setStartSignal((s) => s + 1);
-    setIsOtpDisabled(true); 
+    setIsOtpDisabled(true);
     setOtp("");
-
-  
-    
   };
 
   const handleResend = async () => {
     try {
-      //  Resend OTP API 
-    
+      //  Resend OTP API
       setOtp("");
     } catch (err) {
       console.error("Resend OTP failed:", err);
@@ -54,7 +54,7 @@ const [isOtpDisabled, setIsOtpDisabled] = useState(false);
                 <Button
                   type="submit"
                   className="w-90 center bg-secondary"
-                  disabled={isButtonDisabled || !isOtpComplete}
+                  disabled={isButtonDisabled}
                 >
                   {t("login")}
                 </Button>
@@ -62,14 +62,14 @@ const [isOtpDisabled, setIsOtpDisabled] = useState(false);
 
               <OtpExpireTimer
                 durationSeconds={60}
-                autoStart={false}
+                autoStart={true}
                 startSignal={startSignal}
                 onResend={handleResend}
                 onFinished={() => {
-    setIsButtonDisabled(false); 
-    setIsOtpDisabled(false);   
-  }}
-                storageKey="otp_end_at_verify" // ✅ ثابت حتى مع تغيير اللغة
+                  setIsButtonDisabled(false);
+                  setIsOtpDisabled(false);
+                }}
+                storageKey="otp_end_at_verify"
               />
             </form>
           </div>

@@ -1,4 +1,4 @@
-'use client' ;
+"use client";
 import React from "react";
 import BackBtn from "./BackBtn";
 import LogoImage from "@/components/shared/LogoImage";
@@ -9,7 +9,7 @@ interface IProps {
 }
 
 const HeaderWithBack: React.FC<IProps> = ({ translationKey }) => {
-  const t = useTranslations("auth");
+  const t = useTranslations();
 
   return (
     <div className="flex flex-col gap-xl">

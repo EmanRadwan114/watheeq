@@ -37,6 +37,7 @@ const ResetPasswordForm: React.FC = () => {
     setIsResetSuccess(true);
   };
 
+  // form labels
   const formLabels = t.raw("form-labels") as Array<{
     id: string;
     label: string;
@@ -65,7 +66,7 @@ const ResetPasswordForm: React.FC = () => {
 
   return (
     <div className="w-full lg:max-w-[80%] xl:max-w-[65%]">
-      <HeaderWithBack translationKey="reset-password.header" />
+      <HeaderWithBack translationKey="auth.reset-password.header" />
 
       <form className="flex flex-col gap-xl" onSubmit={handleSubmit(onSubmit)}>
         {newPassword && (
