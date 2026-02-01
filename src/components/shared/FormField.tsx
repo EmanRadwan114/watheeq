@@ -17,6 +17,7 @@ interface FormFieldProps extends React.InputHTMLAttributes<HTMLInputElement> {
   wrapperClassName?: string;
   hasError?: boolean;
   errorMessage?: string;
+  ref?: React.Ref<HTMLInputElement>;
 }
 
 const FormField: React.FC<FormFieldProps> = ({
@@ -31,7 +32,7 @@ const FormField: React.FC<FormFieldProps> = ({
   wrapperClassName = "",
   hasError = false,
   errorMessage,
-
+  ref,
   ...props
 }) => {
   return (
@@ -45,6 +46,7 @@ const FormField: React.FC<FormFieldProps> = ({
     bg-white
     p-lg
     transition-colors
+    icon-parent
 
     ${
       hasError
@@ -55,10 +57,10 @@ const FormField: React.FC<FormFieldProps> = ({
     ${wrapperClassName}
   `}
       >
-        <Input className={`${inputClassName}`} {...props} />
+        <Input className={`${inputClassName}`} {...props} ref={ref} />
 
         {showDivider && <span className="h-5 w-px bg-gray-300" />}
-        
+
         {icon && (
           <button
             type="button"

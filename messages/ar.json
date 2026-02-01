@@ -58,9 +58,9 @@
           "validation-msg": "يجب أن يكون 10 ارقام ويبدأ بـ 7"
         },
         "phone": {
-            "required": "هذا الحقل مطلوب",
-            "validation-msg": "يرجى إدخال رقم هاتف صحيح (مثال: 5xxxxxxxx)"
-              },
+          "required": "هذا الحقل مطلوب",
+          "validation-msg": "يرجى إدخال رقم هاتف صحيح (مثال: 5xxxxxxxx)"
+        },
         "password": {
           "required": "هذا الحقل مطلوب",
           "validation-msg": "يجب أن تحتوي كلمة المرور على ثمانية أحرف، حرف واحد على الأقل ورقم واحد"
@@ -104,6 +104,140 @@
         "description": "لقد تم إعادة تعيين كلمة مرور جديدة لحسابك. يمكنك الآن تسجيل الدخول."
       },
       "login": "تسجيل الدخول"
+    },
+    "register": {
+      "steps": {
+        "heading": "خطوات تسجيل حساب جديد لدى منصة وثيق المالية",
+        "data": [
+          {
+            "step": 1,
+            "title": "اختر نوع الحساب",
+            "description": "املأ البيانات المطلوبة للتسجيل"
+          },
+          {
+            "step": 2,
+            "title": "التحقق من نفاذ",
+            "description": "تأكيد طلبك"
+          },
+          {
+            "step": 3,
+            "title": "إنشاء الحساب",
+            "description": "الدخول للمنصة"
+          },
+          {
+            "step": 4,
+            "title": "نموذج معرفة العميل",
+            "description": "بيانات مهمة لتصبح عميلا"
+          }
+        ]
+      },
+      "register-form": {
+        "heading": "اختر نوع الحساب الاستثماري ثم املأ البيانات المطلوبة",
+        "submit": "إنشاء",
+        "verify-account": {
+          "label": "هل قمت بتفعيل حسابك بالفعل؟",
+          "link-text": "تسجيل الدخول"
+        },
+        "accept-terms": "اقر بموافقتي علي وثيق الماليه بالحصول علي معلوماتي من مركذ البيانات الوطني",
+        "individuals": [
+          {
+            "id": "phoneNum",
+            "type": "number",
+            "label": "رقم الجوال",
+            "placeholder": "5XXXXXXXX"
+          },
+          {
+            "id": "nationalId",
+            "type": "number",
+            "label": "رقم الهوية",
+            "placeholder": "رقم الهوية"
+          },
+          {
+            "id": "birthDate",
+            "type": "text",
+            "label": "تاريخ الميلاد",
+            "placeholder": "ادخل تاريخ الميلاد"
+          },
+          {
+            "id": "email",
+            "type": "email",
+            "label": "البريد الإلكتروني",
+            "placeholder": "البريد الإلكتروني"
+          },
+          {
+            "id": "password",
+            "type": "password",
+            "label": "كلمة المرور",
+            "placeholder": "ادحل كلمة المرور"
+          }
+        ],
+        "companies": [
+          {
+            "id": "unifiedNum",
+            "type": "number",
+            "label": "رقم السجل التجاري",
+            "placeholder": "ادخل رقم السجل التجاري"
+          },
+          {
+            "id": "nationalId",
+            "type": "number",
+            "label": "رقم الهوية",
+            "placeholder": "رقم الهوية"
+          },
+          {
+            "id": "birthDate",
+            "type": "text",
+            "label": "تاريخ الميلاد",
+            "placeholder": "ادخل تاريخ الميلاد"
+          },
+          {
+            "id": "email",
+            "type": "email",
+            "label": "البريد الإلكتروني",
+            "placeholder": "البريد الإلكتروني"
+          },
+          {
+            "id": "password",
+            "type": "password",
+            "label": "كلمة المرور",
+            "placeholder": "ادحل كلمة المرور"
+          }
+        ],
+        "validation-errors": {
+          "unified-num": {
+            "required": "هذا الحقل مطلوب",
+            "type-msg": "يجب أن يكون رقم صحيح.",
+            "validation-msg": "يجب أن يكون 10 ارقام ويبدأ بـ 7"
+          },
+          "phone": {
+            "required": "هذا الحقل مطلوب",
+            "validation-msg": "يرجى إدخال رقم هاتف صحيح (مثال: 5xxxxxxxx)"
+          },
+          "password": {
+            "required": "هذا الحقل مطلوب",
+            "validation-msg": "يجب أن تحتوي كلمة المرور على ثمانية أحرف، حرف واحد على الأقل ورقم واحد"
+          },
+          "nationalId": {
+            "required": "هذا الحقل مطلوب",
+            "validation-msg": "رقم الهوية غير صحيح"
+          },
+          "email": {
+            "required": "هذا الحقل مطلوب",
+            "validation-msg": "يرجى إدخال بريد إلكتروني صحيح"
+          },
+          "birthDate": {
+            "required": "هذا الحقل مطلوب",
+            "validation-msg": "يرجى إدخال تاريخ ميلاد صحيح"
+          }
+        },
+        "password-checks": {
+          "length": "يجب أن تكون كلمة المرور مكونة من 8 أحرف على الأقل",
+          "numbers": "يجب أن تحتوي كلمة المرور على رقم على الأقل",
+          "capital-letter": "يجب أن تحتوي كلمة المرور على أحرف كبيرة",
+          "symbols": "يجب أن تحتوي كلمة المرور على رموز مثل $%#*&@",
+          "small-letter": "يجب أن تحتوي كلمة المرور على أحرف صغيرة"
+        }
+      }
     }
   },
 
@@ -113,7 +247,7 @@
     "verify": "تحقق",
     "error": "رمز التفعيل غير صحيح",
     "success": "تم التفعيل بنجاح",
-    "login": "تسجيل الدخول",
+    "confirm": "تأكيد",
     "timerPrefix": "ينتهي وقت تفعيل الرمز خلال",
     "resend": "إعادة إرسال رمز التفعيل",
     "resending": "جاري إعادة الإرسال...",
@@ -128,5 +262,5 @@
     "description": "ادخل رقم الجوال المسجل في المنصة",
     "phoneLabel": "رقم الجوال",
     "next": "التالي"
-}
+  }
 }

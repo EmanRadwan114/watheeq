@@ -9,13 +9,13 @@ export const getResetPassSchema = (
       newPassword: z
         .string()
         .regex(
-          /^(?=.*[A-Za-z])(?=.*\d).{8,}$/,
+          /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,}$/,
           t("validation-errors.new-password.validation-msg"),
         ),
       confirmPassword: z
         .string()
         .regex(
-          /^(?=.*[A-Za-z])(?=.*\d).{8,}$/,
+          /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,}$/,
           t("validation-errors.confirm-password.validation-msg"),
         ),
     })

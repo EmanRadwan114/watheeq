@@ -54,7 +54,7 @@ const OTP: React.FC = () => {
                   className="w-90 center bg-secondary"
                   disabled={isButtonDisabled}
                 >
-                  {t("login")}
+                  {t("confirm")}
                 </Button>
               </div>
 

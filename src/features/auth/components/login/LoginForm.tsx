@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import FormHeader from "./FormHeader";
 import LoginCompanies from "./LoginCompanies";
 import LoginIndividuals from "./LoginIndividuals";
-import LoginSwitch from "./LoginSwitch";
+import LoginSwicth from "./LoginSwitch";
 import { useSearchParams } from "next/navigation";
 
 const LoginForm: React.FC = () => {
@@ -36,7 +36,7 @@ const LoginForm: React.FC = () => {
       <FormHeader />
 
       <section className="py-5 px-xl sm:px-7.5 shadow rounded-sm">
-        <LoginSwitch type={type} setType={setType} />
+        <LoginSwicth type={type} setType={setType} />
 
         <div>
           {type === "type2" ? <LoginCompanies /> : <LoginIndividuals />}

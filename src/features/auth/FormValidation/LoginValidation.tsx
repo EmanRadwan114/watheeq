@@ -56,7 +56,7 @@ const LoginValidation: React.FC = () => {
         <FormField
           icon={saudiIcon}
           showDivider={true}
-          rightElement={"+966"}
+          rightElement={"966+"}
           label={(phoneField.label ?? phoneField.text) as string}
           type={formLabels[2].type}
           placeholder={phoneField.placeholder}
