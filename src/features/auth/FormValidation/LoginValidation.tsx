@@ -4,7 +4,6 @@ import FormField from "@/components/shared/FormField";
 import PasswordField from "@/components/shared/PasswordField";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Link } from "@/i18n/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl";
 import { useForm, SubmitHandler } from "react-hook-form";
