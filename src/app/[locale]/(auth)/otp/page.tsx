@@ -1,45 +1,10 @@
 "use client";
 
-import { OtpForm } from "@/features/auth/components/Otp/otp-ui";
-import { useState } from "react";
-import { useTranslations } from "next-intl";
 import AuthDesign from "@/features/auth/components/shared/AuthDesign";
-import { Button } from "@/components/ui/button";
-import OtpExpireTimer from "@/components/ui/otp-expire-timer";
 import OtpHeader from "@/features/auth/components/Otp/FormHeaderOtp";
+import OtpVerifyForm from "@/features/auth/components/Otp/OtpVerifyForm";
 
 const OTP: React.FC = () => {
-  const t = useTranslations("otp");
-
-  const [otp, setOtp] = useState("");
-  const [startSignal, setStartSignal] = useState(0);
-  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
-const [isOtpDisabled, setIsOtpDisabled] = useState(false);
-  const isOtpComplete = otp.length === 6;
-
-  const handleVerify = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (!isOtpComplete) return;
-    console.log("OTP:", otp);
-    setIsButtonDisabled(true);
-    setStartSignal((s) => s + 1);
-    setIsOtpDisabled(true); 
-    setOtp("");
-
-  
-    
-  };
-
-  const handleResend = async () => {
-    try {
-      //  Resend OTP API 
-    
-      setOtp("");
-    } catch (err) {
-      console.error("Resend OTP failed:", err);
-    }
-  };
-
   return (
     <AuthDesign>
       <div className="w-full bg-white">
@@ -47,31 +12,13 @@ const [isOtpDisabled, setIsOtpDisabled] = useState(false);
           <div className="w-full space-y-6">
             <OtpHeader />
 
-            <form onSubmit={handleVerify} className="w-full space-y-4">
-              <OtpForm value={otp} onChange={setOtp} disabled={isOtpDisabled} />
-
-              <div className="flex items-center justify-center">
-                <Button
-                  type="submit"
-                  className="w-90 center bg-secondary"
-                  disabled={isButtonDisabled || !isOtpComplete}
-                >
-                  {t("login")}
-                </Button>
-              </div>
-
-              <OtpExpireTimer
-                durationSeconds={60}
-                autoStart={false}
-                startSignal={startSignal}
-                onResend={handleResend}
-                onFinished={() => {
-    setIsButtonDisabled(false); 
-    setIsOtpDisabled(false);   
-  }}
-                storageKey="otp_end_at_verify" // ✅ ثابت حتى مع تغيير اللغة
-              />
-            </form>
+            <OtpVerifyForm
+              durationSeconds={60}
+              storageKey="otp_end_at_verify"
+              onResend={() => {
+                // call resend api here
+              }}
+            />
           </div>
         </div>
       </div>

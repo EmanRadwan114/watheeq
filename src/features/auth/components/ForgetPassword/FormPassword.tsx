@@ -60,9 +60,8 @@ const ForgetPasswordForm: React.FC<IProps> = ({ onSubmitSuccess }) => {
           hasError={!!errors.phoneNumber?.message}
           errorMessage={errors.phoneNumber?.message}
           {...register("phoneNumber", {
-          
             onChange: (e) => {
-              e.target.value = e.target.value.replace(/\D/g, "").slice(0, 8);
+              e.target.value = e.target.value.replace(/\D/g, "").slice(0, 9);
             },
           })}
         />

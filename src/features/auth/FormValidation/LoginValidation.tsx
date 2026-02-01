@@ -71,7 +71,7 @@ const LoginValidation: React.FC<IProps> = ({}) => {
           {...register("phoneNumber", {
           
             onChange: (e) => {
-              e.target.value = e.target.value.replace(/\D/g, "").slice(0, 8);
+              e.target.value = e.target.value.replace(/\D/g, "").slice(0, 9);
             },
           })}
         />
@@ -101,7 +101,6 @@ const LoginValidation: React.FC<IProps> = ({}) => {
           {tLabels("forget-pass")}
         </Link>
       </div>
-
       <Button disabled={!isValid || isSubmitting} type="submit">
         {tLabels("header")}
       </Button>

@@ -1,21 +1,19 @@
-import { useTranslations } from "next-intl";
 import { z } from "zod";
+import { useTranslations } from "next-intl";
 
 export const getOtpSchema = (
-  t: ReturnType<typeof useTranslations<"auth">>,
+  t: ReturnType<typeof useTranslations<"otp">>,
   maxLength = 6
 ) => {
-  const otpRegex = new RegExp(`^\\d{${maxLength}}$`);
-
   return z.object({
     otp: z
       .string()
       .trim()
-      .min(1, { message: t("otp.errors.required") })
-      .refine((val) => otpRegex.test(val), {
-        message: t("otp.errors.invalid"), // لازم يكون ارقام وبالطول المطلوب
+      .min(1, { message: t("errors.required") })
+      .regex(new RegExp(`^\\d{${maxLength}}$`), {
+        message: t("errors.invalid"),
       }),
   });
 };
 
-export type TOtpInput = z.input<ReturnType<typeof getOtpSchema>>;
+export type TOtpInput = z.infer<ReturnType<typeof getOtpSchema>>;
