@@ -6,9 +6,12 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import FormField from "@/components/shared/FormField";
 import { Button } from "@/components/ui/button";
-import { getForgetPasswordSchema,TForgetPasswordInput } from "../../validation/forget-password.validation";
-
-
+import {
+  getForgetPasswordSchema,
+  TForgetPasswordInput,
+} from "../../validation/forget-password.validation";
+import { Link } from "@/i18n/navigation";
+import saudiIcon from "@/assets/icons/saudi-arabia.svg";
 
 interface IProps {
   onSubmitSuccess?: (phone: string) => void;
@@ -17,14 +20,14 @@ interface IProps {
 const ForgetPasswordForm: React.FC<IProps> = ({ onSubmitSuccess }) => {
   const tLogin = useTranslations("auth.login");
   const tLabels = useTranslations("auth.login.form-labels");
-  const tForget = useTranslations(); 
+  const tForget = useTranslations();
 
   const schema = getForgetPasswordSchema(tLogin);
-  
+
   const {
     register,
     handleSubmit,
-    formState: { errors, isValid, isSubmitting },
+    formState: { errors, isValid },
   } = useForm<TForgetPasswordInput>({
     resolver: zodResolver(schema),
     mode: "onChange",
@@ -51,29 +54,29 @@ const ForgetPasswordForm: React.FC<IProps> = ({ onSubmitSuccess }) => {
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
       {phoneField && (
         <FormField
-          icon="/icons/saudi-arabia.svg"
+          icon={saudiIcon}
           showDivider={true}
-          rightElement='+966'
+          rightElement="+966"
           label={(phoneField.label ?? phoneField.text) as string}
           type={formLabels[2].type}
           placeholder={phoneField.placeholder}
           hasError={!!errors.phoneNumber?.message}
           errorMessage={errors.phoneNumber?.message}
-          {...register("phoneNumber", {
-            onChange: (e) => {
-              e.target.value = e.target.value.replace(/\D/g, "").slice(0, 9);
-            },
-          })}
+
+          {...register("phoneNumber")}
+
         />
       )}
 
-      <Button
-        type="submit"
-        className="w-full bg-secondary"
-        disabled={!isValid || isSubmitting}
-      >
-        {tForget("forgetPassword.next")}
-      </Button>
+      <Link href={"/otp"}>
+        <Button
+          type="submit"
+          className="w-full bg-secondary"
+          disabled={!isValid}
+        >
+          {tForget("forgetPassword.next")}
+        </Button>
+      </Link>
     </form>
   );
 };

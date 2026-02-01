@@ -1,8 +1,8 @@
 "use client";
 
+import { useRouter } from "@/i18n/navigation";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useLocale } from "next-intl";
-import { useRouter } from "next/navigation";
 import React from "react";
 import { useTranslations } from "use-intl";
 

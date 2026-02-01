@@ -84,7 +84,6 @@ const OtpExpireTimer: React.FC<IProps> = ({
     completed: boolean;
   }) => {
     if (completed) return null;
-
     const mm = String(minutes).padStart(2, "0");
     const ss = String(seconds).padStart(2, "0");
 
@@ -116,9 +115,7 @@ const OtpExpireTimer: React.FC<IProps> = ({
       {!shouldHideAll && !isExpired && endAt && (
         <Countdown date={endAt} renderer={renderer} onComplete={handleComplete} />
       )}
-
       
-
        {!shouldHideAll && isExpired && (
       <button
         type="button"

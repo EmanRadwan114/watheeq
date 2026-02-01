@@ -8,7 +8,7 @@
       "description": "Watheeq strives to be the preferred financial and investment partner for those seeking diverse investment opportunities and comprehensive financial services compliant with Islamic Sharia principles.",
       "copyrights": "© All rights reserved - Watheeq Financial Platform"
     },
-    
+
     "footer": [
       { "id": "contactUs", "label": "Contact Us" },
       { "id": "aboutUs", "label": "About Us" },
@@ -54,14 +54,13 @@
       },
       "validation-errors": {
         "unified-num": {
-          
           "type-msg": "Must be an integer",
           "validation-msg": "Must be a 10 digital and start with 7"
         },
-      "phone": {
-              "required": "This field is required",
-              "validation-msg": "Please enter a valid phone number (EX: 5xxxxxxxx)"
-            },
+        "phone": {
+          "required": "This field is required",
+          "validation-msg": "Please enter a valid phone number (EX: 5xxxxxxxx)"
+        },
         "password": {
           "required": "This field is required",
           "validation-msg": "The password output must contain characters, at least one letter and one number."
@@ -105,6 +104,140 @@
         "description": "A new password has been set for your account. You can now log in."
       },
       "login": "Login"
+    },
+    "register": {
+      "steps": {
+        "heading": "Steps to Register a New Account with Watheeq Financial Platform",
+        "data": [
+          {
+            "step": 1,
+            "title": "Choose Account Type",
+            "description": "Fill in the required registration details"
+          },
+          {
+            "step": 2,
+            "title": "Nafaz Verification",
+            "description": "Confirm your request"
+          },
+          {
+            "step": 3,
+            "title": "Account Creation",
+            "description": "Access the platform"
+          },
+          {
+            "step": 4,
+            "title": "Know Your Customer Form",
+            "description": "Important details to become a qualified Customer"
+          }
+        ]
+      },
+      "register-form": {
+        "heading": "Choose the investment account type, then fill in the required details",
+        "submit": "Create",
+        "accept-terms": "I hereby give my consent for Wathiq Capital Company to obtain my information from the National Information Center.",
+        "verify-account": {
+          "label": "Have you already activated your account?",
+          "link-text": "Login"
+        },
+        "individuals": [
+          {
+            "id": "phoneNum",
+            "type": "number",
+            "label": "Mobile Number",
+            "placeholder": "5XXXXXXXX"
+          },
+          {
+            "id": "nationalId",
+            "type": "number",
+            "label": "National ID",
+            "placeholder": "National ID"
+          },
+          {
+            "id": "birthDate",
+            "type": "text",
+            "label": "Date of Birth",
+            "placeholder": "Enter date of birth"
+          },
+          {
+            "id": "email",
+            "type": "email",
+            "label": "Email Address",
+            "placeholder": "Email Address"
+          },
+          {
+            "id": "password",
+            "type": "password",
+            "label": "Password",
+            "placeholder": "Enter password"
+          }
+        ],
+        "companies": [
+          {
+            "id": "unifiedNum",
+            "type": "number",
+            "label": "Unified National Number",
+            "placeholder": "Enter Unified Number"
+          },
+          {
+            "id": "nationalId",
+            "type": "number",
+            "label": "National ID",
+            "placeholder": "Enter National ID"
+          },
+          {
+            "id": "birthDate",
+            "type": "text",
+            "label": "Date of Birth",
+            "placeholder": "Enter date of birth"
+          },
+          {
+            "id": "email",
+            "type": "email",
+            "label": "Email Address",
+            "placeholder": "Enter Email Address"
+          },
+          {
+            "id": "password",
+            "type": "password",
+            "label": "Password",
+            "placeholder": "Enter password"
+          }
+        ],
+        "validation-errors": {
+          "unified-num": {
+            "required": "This field is required",
+            "type-msg": "Must be a valid number",
+            "validation-msg": "Must be 10 digits and start with 7"
+          },
+          "phone": {
+            "required": "This field is required",
+            "validation-msg": "Please enter a valid mobile number (e.g., 5xxxxxxxx)"
+          },
+          "password": {
+            "required": "This field is required",
+            "validation-msg": "Password must be at least 8 characters, including at least one letter and one number"
+          },
+          "nationalId": {
+            "required": "This field is required",
+            "validation-msg": "Invalid National ID"
+          },
+          "email": {
+            "required": "This field is required",
+            "validation-msg": "Please enter a valid email address"
+          },
+          "birthDate": {
+            "required": "This field is required",
+            "validation-msg": "Please enter a valid date of birth"
+          }
+        },
+        "password-checks": {
+          "length": "Password must be at least 8 characters long",
+          "numbers": "Password must contain at least one number",
+          "capital-letter": "Password must contain uppercase letters",
+          "symbols": "Password must contain symbols such as $%#*&@",
+          "small-letter": "Password must contain lowercase letters"
+        }
+      }
     }
   },
   "otp": {
@@ -114,9 +247,10 @@
     "resend": "Resend",
     "error": "Invalid code",
     "success": "Verification successful",
-    "login": "Login",
+    "confirm": "Confirm",
     "timerPrefix": "The code will expire in",
     "resending": "Resending...",
+    "login":"Confirm",
     "errors": {
       "required": "This field is required",
       "invalid": "otp is Incorrect"

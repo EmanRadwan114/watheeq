@@ -2,14 +2,12 @@
 
 import React from "react";
 import {  useTranslations } from "next-intl";
-
 import LogoImage from "@/components/shared/LogoImage";
-
 interface IProps {
   maskedPhone?: string;
 }
 
-const OtpHeader: React.FC<IProps> = ({ maskedPhone = "**********212" }) => {
+const OtpHeader: React.FC<IProps> = ({ maskedPhone = "****212" }) => {
   const t = useTranslations();
  
 

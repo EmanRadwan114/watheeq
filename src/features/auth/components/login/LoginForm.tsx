@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import FormHeader from "./FormHeader";
 import LoginCompanies from "./LoginCompanies";
 import LoginIndividuals from "./LoginIndividuals";
-import LoginSwitch from "./LoginSwitch";
+import LoginSwicth from "./LoginSwitch";
 import { useSearchParams } from "next/navigation";
 
 const LoginForm: React.FC = () => {
@@ -14,8 +14,17 @@ const LoginForm: React.FC = () => {
     loginTypeParam === "2" ? "type2" : "type1",
   );
 
+  const screenWidth = useRef(1024);
+
   useEffect(() => {
-    document.body.style.overflow = "hidden";
+    if (typeof window != undefined) {
+      screenWidth.current = window.screen.width;
+      console.log(screenWidth.current);
+
+      if (screenWidth.current >= 1024) {
+        document.body.style.overflow = "hidden";
+      }
+    }
 
     return () => {
       document.body.style.overflow = "visible";
@@ -27,7 +36,7 @@ const LoginForm: React.FC = () => {
       <FormHeader />
 
       <section className="py-5 px-xl sm:px-7.5 shadow rounded-sm">
-        <LoginSwitch type={type} setType={setType} />
+        <LoginSwicth type={type} setType={setType} />
 
         <div>
           {type === "type2" ? <LoginCompanies /> : <LoginIndividuals />}
