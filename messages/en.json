@@ -250,6 +250,7 @@
     "confirm": "Confirm",
     "timerPrefix": "The code will expire in",
     "resending": "Resending...",
+    "login":"Confirm",
     "errors": {
       "required": "This field is required",
       "invalid": "otp is Incorrect"
@@ -266,11 +267,11 @@
         "type-msg": "Invalid phone number",
         "validation-msg": "Incorrect password"
       },
-      "password": {
-        "type-msg": "Invalid password",
-        "validation-msg": "Incorrect password",
-        "max-length": "Incorrect password"
-      }
-    }
+       "password": {
+      "type-msg": "Invalid password",
+      "validation-msg": "Incorrect password",
+      "max-length": "Incorrect password"
+    } 
   }
+}
 }

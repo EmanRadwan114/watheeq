@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useEffect, useState } from "react";
 import Countdown from "react-countdown";
 import { useTranslations } from "next-intl";
@@ -9,78 +8,71 @@ import Image from "next/image";
 interface IProps {
   durationSeconds?: number;
   autoStart?: boolean;
-
-  // ✅ يبدأ العداد لما القيمة دي تتغير
-  startSignal?: number;
-
-  // ✅ يناديها لما العداد يخلص (عشان تفتح زرار Verify)
   onFinished?: () => void;
-
-  // ✅ يناديها لما المستخدم يضغط Resend
   onResend?: () => Promise<void> | void;
-
-  // ✅ لتثبيت العداد عبر تغيير اللغة (sessionStorage)
   storageKey?: string;
-
+  hidden?: boolean;
   className?: string;
   timerPrefixText?: string;
   resendText?: string;
+  forceExpired?: boolean;
+  
 }
 
 const OtpExpireTimer: React.FC<IProps> = ({
   durationSeconds = 60,
   autoStart = true,
-  startSignal = 0,
   onFinished,
   onResend,
-  storageKey = "otp_end_at",
+  storageKey = "otp_end_at_otp_page",
+  hidden = false,
   className = "",
   timerPrefixText,
   resendText,
+  forceExpired = false,
 }) => {
   const t = useTranslations("otp");
 
   const [endAt, setEndAt] = useState<number | null>(null);
   const [isResending, setIsResending] = useState(false);
+  const prefix = timerPrefixText ?? t("timerPrefix");
+  const resendLabel = resendText ?? t("resend");
+  const isExpired = forceExpired || !endAt;
 
-  // ✅ اقرأ endAt من sessionStorage عند mount (عشان تغيير اللغة ما يعملش reset)
   useEffect(() => {
+    if (forceExpired) {
+      sessionStorage.removeItem(storageKey);
+      setEndAt(null);
+      return;
+    }
+
     const saved = sessionStorage.getItem(storageKey);
-    const now = Date.now();
 
     if (saved) {
       const ts = Number(saved);
-      if (ts > now) {
+      if (!Number.isNaN(ts) && ts > Date.now()) {
         setEndAt(ts);
         return;
       }
+      sessionStorage.removeItem(storageKey);
     }
 
     if (autoStart) {
-      const ts = now + durationSeconds * 1000;
-      sessionStorage.setItem(storageKey, String(ts));
-      setEndAt(ts);
-    }
-  }, [storageKey, autoStart, durationSeconds]);
-
-  // ✅ يبدأ لما startSignal يتغير (Verify اتضغط)
-  useEffect(() => {
-    if (!autoStart && startSignal > 0) {
       const ts = Date.now() + durationSeconds * 1000;
       sessionStorage.setItem(storageKey, String(ts));
       setEndAt(ts);
+    } else {
+      setEndAt(null);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [startSignal]);
+  }, [autoStart, durationSeconds, storageKey, forceExpired]);
+
+
 
   const handleComplete = () => {
     sessionStorage.removeItem(storageKey);
     setEndAt(null);
     onFinished?.();
   };
-
-  const prefix = timerPrefixText ?? t("timerPrefix");
-  const resendLabel = resendText ?? t("resend");
 
   const renderer = ({
     minutes,
@@ -92,26 +84,23 @@ const OtpExpireTimer: React.FC<IProps> = ({
     completed: boolean;
   }) => {
     if (completed) return null;
-
     const mm = String(minutes).padStart(2, "0");
     const ss = String(seconds).padStart(2, "0");
 
     return (
       <p className="text-sm text-primary-foreground text-center">
-        {prefix}{" "}
-        <span className="font-medium">
-          {mm}:{ss}
-        </span>
+        {prefix} <span className="font-medium">{mm}:{ss}</span>
       </p>
     );
   };
 
   const handleResendClick = async () => {
+    if (isResending) return;
+
     try {
       setIsResending(true);
       await onResend?.();
 
-      // ✅ بعد resend: ابدأ عداد جديد
       const ts = Date.now() + durationSeconds * 1000;
       sessionStorage.setItem(storageKey, String(ts));
       setEndAt(ts);
@@ -119,31 +108,27 @@ const OtpExpireTimer: React.FC<IProps> = ({
       setIsResending(false);
     }
   };
-
+    const shouldHideAll = hidden;
   return (
-    <div className={`flex flex-col items-center gap-xl ${className}`}>
-      {/* ✅ العداد يظهر فقط أثناء التشغيل */}
-      {endAt && (
-        <Countdown
-          date={endAt}
-          renderer={renderer}
-          onComplete={handleComplete}
-        />
+    <div className={`flex flex-col items-center gap-3 text-amber-300 ${className}`}>
+      
+      {!shouldHideAll && !isExpired && endAt && (
+        <Countdown date={endAt} renderer={renderer} onComplete={handleComplete} />
       )}
-
+      
+       {!shouldHideAll && isExpired && (
       <button
         type="button"
         onClick={handleResendClick}
         disabled={isResending}
         className={`inline-flex items-center gap-2 text-fourth-foreground text-sm font-medium ${
-          !isResending
-            ? "text-fifth-foreground cursor-pointer"
-            : "text-gray-400 cursor-not-allowed"
+          isResending ? "text-gray-400 cursor-not-allowed" : "text-fifth-foreground cursor-pointer"
         }`}
       >
         <Image src={reapet} alt="repeat" width={16} height={16} />
         {isResending ? t("resending") : resendLabel}
       </button>
+       )}
     </div>
   );
 };
