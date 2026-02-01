@@ -7,7 +7,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl";
 import { useForm, SubmitHandler } from "react-hook-form";
-import saudiIcon from "../../../assets/icons/saudi-arabia.svg";
+import saudiIcon from "@/assets/icons/saudi-arabia.svg";
 import {
   getLoginIndividualsSchema,
   TLoginIndividualsInput,

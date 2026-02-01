@@ -11,6 +11,7 @@ import {
   TForgetPasswordInput,
 } from "../../validation/forget-password.validation";
 import { Link } from "@/i18n/navigation";
+import saudiIcon from "@/assets/icons/saudi-arabia.svg";
 
 interface IProps {
   onSubmitSuccess?: (phone: string) => void;
@@ -53,7 +54,7 @@ const ForgetPasswordForm: React.FC<IProps> = ({ onSubmitSuccess }) => {
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
       {phoneField && (
         <FormField
-          icon="/icons/saudi-arabia.svg"
+          icon={saudiIcon}
           showDivider={true}
           rightElement="+966"
           label={(phoneField.label ?? phoneField.text) as string}
