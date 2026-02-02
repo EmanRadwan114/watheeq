@@ -237,7 +237,9 @@
           "symbols": "Password must contain symbols such as $%#*&@",
           "small-letter": "Password must contain lowercase letters"
         }
-      }
+      },
+      "heading": "Identity Verification Code",
+      "description": "Please open the Nafath app and confirm the request by selecting the number shown above."
     }
   },
   "otp": {
@@ -250,7 +252,7 @@
     "confirm": "Confirm",
     "timerPrefix": "The code will expire in",
     "resending": "Resending...",
-    "login":"Confirm",
+    "login": "Confirm",
     "errors": {
       "required": "This field is required",
       "invalid": "otp is Incorrect"
@@ -267,11 +269,11 @@
         "type-msg": "Invalid phone number",
         "validation-msg": "Incorrect password"
       },
-       "password": {
-      "type-msg": "Invalid password",
-      "validation-msg": "Incorrect password",
-      "max-length": "Incorrect password"
-    } 
+      "password": {
+        "type-msg": "Invalid password",
+        "validation-msg": "Incorrect password",
+        "max-length": "Incorrect password"
+      }
+    }
   }
-}
 }
