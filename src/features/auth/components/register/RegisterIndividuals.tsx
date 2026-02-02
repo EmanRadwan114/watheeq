@@ -16,7 +16,11 @@ import {
   TRegisterIndividualsSchema,
 } from "../../validation/register.validation";
 
-const RegisterIndividuals: React.FC = () => {
+interface IProps {
+  setCurrentStep: React.Dispatch<React.SetStateAction<number>>;
+}
+
+const RegisterIndividuals: React.FC<IProps> = ({ setCurrentStep }) => {
   const [checked, setChecked] = useState(false);
   const dateRef = useRef<HTMLInputElement>(null);
 
@@ -34,8 +38,10 @@ const RegisterIndividuals: React.FC = () => {
     mode: "onChange",
   });
 
-  const onSubmit: SubmitHandler<TRegisterIndividualsSchema> = (data) =>
+  const onSubmit: SubmitHandler<TRegisterIndividualsSchema> = (data) => {
     console.log(data);
+    setCurrentStep((prev) => prev + 1);
+  };
 
   const formData = t.raw("individuals") as Array<{
     id: string;

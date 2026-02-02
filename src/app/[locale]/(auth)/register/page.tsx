@@ -1,6 +1,5 @@
 import RegisterForm from "@/features/auth/components/register/RegisterForm";
 import RegisterHeader from "@/features/auth/components/register/RegisterHeader";
-import RegisterSteps from "@/features/auth/components/register/RegisterSteps";
 import React from "react";
 
 const Register: React.FC = () => {
