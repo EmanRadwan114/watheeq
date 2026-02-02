@@ -1,5 +1,3 @@
-"use client";
-
 import AuthDesign from "@/features/auth/components/shared/AuthDesign";
 import OtpHeader from "@/features/auth/components/Otp/FormHeaderOtp";
 import OtpVerifyForm from "@/features/auth/components/Otp/OtpVerifyForm";
