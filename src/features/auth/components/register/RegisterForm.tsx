@@ -16,13 +16,15 @@ const RegisterForm: React.FC = () => {
     registerTypeParam === "2" ? "type2" : "type1",
   );
 
+  const [currentStep, setCurrentStep] = useState(1)
+
   const t = useTranslations("auth.register.register-form");
 
   return (
     <div className="flex flex-col gap-2xl">
       {/* steps */}
       <section className="p-xl bg-white border border-gray-100 rounded-lg -translate-y-6 shadow">
-        <RegisterSteps />
+        <RegisterSteps currentStep={currentStep} setCurrentStep={setCurrentStep}/>
       </section>
 
       {/* register form */}
