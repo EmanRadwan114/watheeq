@@ -238,8 +238,24 @@
           "small-letter": "Password must contain lowercase letters"
         }
       },
-      "heading": "Identity Verification Code",
-      "description": "Please open the Nafath app and confirm the request by selecting the number shown above."
+            "verify-id": {
+              "heading": "Identity Verification Code",
+              "description": "Please open the Nafath app and confirm the request by selecting the number shown above."
+            },
+      "client-type": {
+        "heading": "Account Created Successfully",
+        "description": "To activate your investment account with the Watheeq platform, please log in using your registered mobile number and password, then complete the Know Your Customer (KYC) form.",
+        "login": "Login",
+        "notes": {
+          "heading": "Before you begin, you may need to prepare the following to complete the KYC form:",
+          "items": [
+            "National ID details",
+            "National Address details",
+            "Bank Account details",
+            "Proof of Eligibility"
+          ]
+        }
+      }
     }
   },
   "otp": {

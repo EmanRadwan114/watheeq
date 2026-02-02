@@ -6,6 +6,7 @@ import { Link } from "@/i18n/navigation";
 import RegisterSteps from "./RegisterSteps";
 import PersonalInfoForm from "./PersonalInfoForm";
 import VerifyID from "./VerifyID";
+import ClientType from "./ClientType";
 
 const RegisterForm: React.FC = () => {
   const [currentStep, setCurrentStep] = useState(0);
@@ -26,6 +27,7 @@ const RegisterForm: React.FC = () => {
         )}
 
         {currentStep === 1 && <VerifyID setCurrentStep={setCurrentStep} />}
+        {currentStep === 3 && <ClientType setCurrentStep={setCurrentStep} />}
       </section>
 
       {/* login link */}

@@ -26,7 +26,7 @@ const RegisterSteps: React.FC<IProps> = ({ currentStep }) => {
         {t("heading")}
       </h1>
       {/* steps data */}
-      <div className="w-full flex justify-evenly gap-md">
+      <div className="w-full flex flex-col lg:flex-row lg:justify-evenly gap-x-md gap-y-lg">
         {stepsWithComplete.map((item) => (
           <div key={item.step} className="flex gap-md">
             <div
