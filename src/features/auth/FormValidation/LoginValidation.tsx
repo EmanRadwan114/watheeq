@@ -17,10 +17,8 @@ import RememberMe from "../components/shared/RememberMe";
 
 const LoginValidation: React.FC = () => {
   const [checked, setChecked] = useState(false);
-
   const tLogin = useTranslations("auth.login");
   const tLabels = useTranslations("auth.login.form-labels");
-
   const loginIndividualsSchema = getLoginIndividualsSchema(tLogin);
 
   const {
@@ -62,7 +60,9 @@ const LoginValidation: React.FC = () => {
           placeholder={phoneField.placeholder}
           errorMessage={errors.phoneNumber?.message}
           hasError={!!errors.phoneNumber?.message}
+
           {...register("phoneNumber")}
+
         />
       )}
 
@@ -84,6 +84,7 @@ const LoginValidation: React.FC = () => {
           id="remember"
         />
       </RememberMe>
+
 
       <Button type="submit" disabled={!isValid}>
         {tLabels("header")}

@@ -62,7 +62,9 @@ const ForgetPasswordForm: React.FC<IProps> = ({ onSubmitSuccess }) => {
           placeholder={phoneField.placeholder}
           hasError={!!errors.phoneNumber?.message}
           errorMessage={errors.phoneNumber?.message}
+
           {...register("phoneNumber")}
+
         />
       )}
 
