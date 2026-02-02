@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useMemo, useState } from "react";
@@ -12,6 +11,7 @@ import {
   getOtpSchema,
   type TOtpInput,
 } from "@/features/auth/validation/otp.validation";
+import { useRouter } from "@/i18n/navigation";
 
 interface Props {
   durationSeconds?: number;
@@ -29,6 +29,7 @@ const OtpVerifyForm: React.FC<Props> = ({
   className = "",
 }) => {
   const t = useTranslations("otp");
+  const router = useRouter();
 
   const otpSchema = useMemo(() => getOtpSchema(t, 6), [t]);
   const [forceExpired, setForceExpired] = useState(false);
@@ -48,6 +49,7 @@ const OtpVerifyForm: React.FC<Props> = ({
   const hasOtpError = !!errors.otp?.message;
 
   const onSubmit: SubmitHandler<TOtpInput> = async (data) => {
+    router.push("reset-password");
     console.log("OTP:", data.otp);
     setForceExpired(true);
     await onVerify?.(data.otp);
@@ -62,11 +64,10 @@ const OtpVerifyForm: React.FC<Props> = ({
     clearErrors("otp");
   };
 
-   const handleTimerFinished = () => {
+  const handleTimerFinished = () => {
     setForceExpired(true);
   };
 
-  
   return (
     <div className={`w-full flex flex-col items-center gap-xl ${className}`}>
       <form className="flex flex-col gap-xl" onSubmit={handleSubmit(onSubmit)}>
@@ -77,7 +78,7 @@ const OtpVerifyForm: React.FC<Props> = ({
           errorMessage={errors.otp ? String(errors.otp.message) : ""}
         />
 
-        <Button type="submit"  disabled={!isValid || isSubmitting}>
+        <Button type="submit" disabled={!isValid}>
           {t("login")}
         </Button>
       </form>
