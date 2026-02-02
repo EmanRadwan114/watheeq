@@ -2,19 +2,14 @@
 
 import { useTranslations } from "next-intl";
 import React, { useState } from "react";
-import { useSearchParams } from "next/navigation";
-import AuthSwitch from "../shared/AuthSwitch";
-import RegisterIndividuals from "./RegisterIndividuals";
-import RegisterCompanies from "./RegisterCompanies";
 import { Link } from "@/i18n/navigation";
 import RegisterSteps from "./RegisterSteps";
+import PersonalInfoForm from "./PersonalInfoForm";
+import VerifyID from "./VerifyID";
+import ClientType from "./ClientType";
 
 const RegisterForm: React.FC = () => {
-  const registerTypeParam = useSearchParams().get("type");
-
-  const [type, setType] = useState(() =>
-    registerTypeParam === "2" ? "type2" : "type1",
-  );
+  const [currentStep, setCurrentStep] = useState(0);
 
   const t = useTranslations("auth.register.register-form");
 
@@ -22,23 +17,17 @@ const RegisterForm: React.FC = () => {
     <div className="flex flex-col gap-2xl">
       {/* steps */}
       <section className="p-xl bg-white border border-gray-100 rounded-lg -translate-y-6 shadow">
-        <RegisterSteps />
+        <RegisterSteps currentStep={currentStep} />
       </section>
 
       {/* register form */}
       <section className="py-2xl px-3xl bg-white border border-gray-100 rounded-lg shadow">
-        <div className="flex flex-col gap-xl">
-          {/* form header */}
-          <div className="flex flex-col gap-2.5 items-center">
-            <h2 className="heading-6 text-center">{t("heading")}</h2>
-            <div className="w-[40%]">
-              <AuthSwitch type={type} setType={setType} />
-            </div>
-          </div>
+        {currentStep === 0 && (
+          <PersonalInfoForm setCurrentStep={setCurrentStep} />
+        )}
 
-          {/* forms */}
-          {type === "type2" ? <RegisterCompanies /> : <RegisterIndividuals />}
-        </div>
+        {currentStep === 1 && <VerifyID setCurrentStep={setCurrentStep} />}
+        {currentStep === 3 && <ClientType setCurrentStep={setCurrentStep} />}
       </section>
 
       {/* login link */}

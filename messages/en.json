@@ -237,6 +237,24 @@
           "symbols": "Password must contain symbols such as $%#*&@",
           "small-letter": "Password must contain lowercase letters"
         }
+      },
+            "verify-id": {
+              "heading": "Identity Verification Code",
+              "description": "Please open the Nafath app and confirm the request by selecting the number shown above."
+            },
+      "client-type": {
+        "heading": "Account Created Successfully",
+        "description": "To activate your investment account with the Watheeq platform, please log in using your registered mobile number and password, then complete the Know Your Customer (KYC) form.",
+        "login": "Login",
+        "notes": {
+          "heading": "Before you begin, you may need to prepare the following to complete the KYC form:",
+          "items": [
+            "National ID details",
+            "National Address details",
+            "Bank Account details",
+            "Proof of Eligibility"
+          ]
+        }
       }
     }
   },
@@ -250,7 +268,7 @@
     "confirm": "Confirm",
     "timerPrefix": "The code will expire in",
     "resending": "Resending...",
-    "login":"Confirm",
+    "login": "Confirm",
     "errors": {
       "required": "This field is required",
       "invalid": "otp is Incorrect"
@@ -267,11 +285,11 @@
         "type-msg": "Invalid phone number",
         "validation-msg": "Incorrect password"
       },
-       "password": {
-      "type-msg": "Invalid password",
-      "validation-msg": "Incorrect password",
-      "max-length": "Incorrect password"
-    } 
+      "password": {
+        "type-msg": "Invalid password",
+        "validation-msg": "Incorrect password",
+        "max-length": "Incorrect password"
+      }
+    }
   }
-}
 }

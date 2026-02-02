@@ -13,7 +13,11 @@ import {
 } from "../../validation/register.validation";
 import PasswordCheck from "../shared/PasswordCheck";
 
-const RegisterCompanies: React.FC = () => {
+interface IProps {
+  setCurrentStep: React.Dispatch<React.SetStateAction<number>>;
+}
+
+const RegisterCompanies: React.FC<IProps> = ({ setCurrentStep }) => {
   const [checked, setChecked] = useState(false);
   const dateRef = useRef<HTMLInputElement>(null);
 
@@ -31,8 +35,10 @@ const RegisterCompanies: React.FC = () => {
     mode: "onChange",
   });
 
-  const onSubmit: SubmitHandler<TRegisterCompaniesSchema> = (data) =>
+  const onSubmit: SubmitHandler<TRegisterCompaniesSchema> = (data) => {
     console.log(data);
+    setCurrentStep((prev) => prev + 1);
+  };
 
   const formData = t.raw("companies") as Array<{
     id: string;
