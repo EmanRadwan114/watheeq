@@ -30,19 +30,19 @@
         "labels": [
           {
             "id": "unifiedNum",
-            "text": "Unified National Number",
+            "label": "Unified National Number",
             "type": "number",
             "placeholder": "Enter Unified National Number"
           },
           {
             "id": "password",
-            "text": "Password",
+            "label": "Password",
             "type": "password",
             "placeholder": "Enter password"
           },
           {
             "id": "phoneNum",
-            "text": "Phone Number",
+            "label": "Phone Number",
             "type": "number",
             "placeholder": "5XXXXXXXX"
           }
@@ -238,10 +238,10 @@
           "small-letter": "Password must contain lowercase letters"
         }
       },
-            "verify-id": {
-              "heading": "Identity Verification Code",
-              "description": "Please open the Nafath app and confirm the request by selecting the number shown above."
-            },
+      "verify-id": {
+        "heading": "Identity Verification Code",
+        "description": "Please open the Nafath app and confirm the request by selecting the number shown above."
+      },
       "client-type": {
         "heading": "Account Created Successfully",
         "description": "To activate your investment account with the Watheeq platform, please log in using your registered mobile number and password, then complete the Know Your Customer (KYC) form.",
