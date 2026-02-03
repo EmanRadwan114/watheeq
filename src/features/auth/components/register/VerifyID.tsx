@@ -1,7 +1,8 @@
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import nafazImg from "@/assets/images/nafaz.jpg";
 import { useTranslations } from "next-intl";
+import OtpContainerRegister from './OtpContainerRegister';
 
 interface IProps {
   setCurrentStep: React.Dispatch<React.SetStateAction<number>>;
@@ -17,8 +18,12 @@ const VerifyID: React.FC<IProps> = ({ setCurrentStep }) => {
         <p className="body-lg-medium text-third-foreground">
           {t("description")}
         </p>
+        
 
         {/* timer code */}
+        
+         <OtpContainerRegister/>
+        
       </div>
     </div>
   );

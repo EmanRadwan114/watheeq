@@ -32,7 +32,6 @@ const OtpExpireTimer: React.FC<IProps> = ({
   forceExpired = false,
 }) => {
   const t = useTranslations("otp");
-
   const [endAt, setEndAt] = useState<number | null>(null);
   const [isResending, setIsResending] = useState(false);
   const prefix = timerPrefixText ?? t("timerPrefix");
@@ -130,7 +129,7 @@ const OtpExpireTimer: React.FC<IProps> = ({
       </button>
        )}
     </div>
-  );
+  )
 };
 
 export default OtpExpireTimer;

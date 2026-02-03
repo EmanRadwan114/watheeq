@@ -263,6 +263,7 @@
     "description": "A verification code has been sent to your email",
     "verify": "Verify",
     "resend": "Resend",
+    "resending-activation":"Resend Activation Code",
     "error": "Invalid code",
     "success": "Verification successful",
     "confirm": "Confirm",
