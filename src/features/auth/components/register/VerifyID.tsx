@@ -1,14 +1,10 @@
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import nafazImg from "@/assets/images/nafaz.jpg";
 import { useTranslations } from "next-intl";
-import OtpContainerRegister from './OtpContainerRegister';
+import OtpContainerRegister from "./OtpContainerRegister";
 
-interface IProps {
-  setCurrentStep: React.Dispatch<React.SetStateAction<number>>;
-}
-
-const VerifyID: React.FC<IProps> = ({ setCurrentStep }) => {
+const VerifyID: React.FC = () => {
   const t = useTranslations("auth.register.verify-id");
   return (
     <div className="flex items-center justify-center min-h-screen">
@@ -18,12 +14,9 @@ const VerifyID: React.FC<IProps> = ({ setCurrentStep }) => {
         <p className="body-lg-medium text-third-foreground">
           {t("description")}
         </p>
-        
 
         {/* timer code */}
-        
-         <OtpContainerRegister/>
-        
+        <OtpContainerRegister />
       </div>
     </div>
   );

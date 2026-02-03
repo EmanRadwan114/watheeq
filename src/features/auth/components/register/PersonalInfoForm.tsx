@@ -1,20 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import AuthSwitch from "../shared/AuthSwitch";
 import RegisterIndividuals from "./RegisterIndividuals";
 import RegisterCompanies from "./RegisterCompanies";
-import { useSearchParams } from "next/navigation";
 import { useTranslations } from "next-intl";
+import { useAppSelector } from "@/redux-toolkit/hooks";
 
-interface IProps {
-  setCurrentStep: React.Dispatch<React.SetStateAction<number>>;
-}
-
-const PersonalInfoForm: React.FC<IProps> = ({ setCurrentStep }) => {
-  const registerTypeParam = useSearchParams().get("type");
-
-  const [type, setType] = useState(() =>
-    registerTypeParam === "2" ? "type2" : "type1",
-  );
+const PersonalInfoForm: React.FC = () => {
+  const clientType = useAppSelector((state) => state.register.clientType);
 
   const t = useTranslations("auth.register.register-form");
 
@@ -24,16 +16,12 @@ const PersonalInfoForm: React.FC<IProps> = ({ setCurrentStep }) => {
       <div className="flex flex-col gap-2.5 items-center">
         <h2 className="heading-6 text-center">{t("heading")}</h2>
         <div className="w-[40%]">
-          <AuthSwitch type={type} setType={setType} />
+          <AuthSwitch switchType="register" />
         </div>
       </div>
 
       {/* forms */}
-      {type === "type2" ? (
-        <RegisterCompanies setCurrentStep={setCurrentStep} />
-      ) : (
-        <RegisterIndividuals setCurrentStep={setCurrentStep} />
-      )}
+      {clientType === "2" ? <RegisterCompanies /> : <RegisterIndividuals />}
     </div>
   );
 };

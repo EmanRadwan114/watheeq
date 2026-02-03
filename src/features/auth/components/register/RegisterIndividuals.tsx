@@ -15,14 +15,14 @@ import {
   getRegisterIndividualsSchema,
   TRegisterIndividualsSchema,
 } from "../../validation/register.validation";
+import { useAppDispatch } from "@/redux-toolkit/hooks";
+import { changeStep } from "../../store/register.slice";
 
-interface IProps {
-  setCurrentStep: React.Dispatch<React.SetStateAction<number>>;
-}
-
-const RegisterIndividuals: React.FC<IProps> = ({ setCurrentStep }) => {
+const RegisterIndividuals: React.FC = () => {
   const [checked, setChecked] = useState(false);
   const dateRef = useRef<HTMLInputElement>(null);
+
+  const dispatch = useAppDispatch();
 
   const t = useTranslations("auth.register.register-form");
 
@@ -40,7 +40,7 @@ const RegisterIndividuals: React.FC<IProps> = ({ setCurrentStep }) => {
 
   const onSubmit: SubmitHandler<TRegisterIndividualsSchema> = (data) => {
     console.log(data);
-    setCurrentStep((prev) => prev + 1);
+    dispatch(changeStep(1));
   };
 
   const formData = t.raw("individuals") as Array<{

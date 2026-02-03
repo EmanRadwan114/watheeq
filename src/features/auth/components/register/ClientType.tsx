@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import React from "react";
 import fileImg from "@/assets/images/data access.svg";
@@ -6,13 +8,12 @@ import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 import AlertIcon from "@/components/icons/AlertIcon";
 import InfoIcon from "@/components/icons/InfoIcon";
+import { useAppSelector } from "@/redux-toolkit/hooks";
 
-interface IProps {
-  setCurrentStep: React.Dispatch<React.SetStateAction<number>>;
-}
-
-const ClientType: React.FC<IProps> = ({ setCurrentStep }) => {
+const ClientType: React.FC = () => {
   const t = useTranslations("auth.register.client-type");
+
+  const clientType = useAppSelector((state) => state.register.clientType);
 
   const notesData = t.raw("notes.items") as Array<string>;
 
@@ -26,7 +27,10 @@ const ClientType: React.FC<IProps> = ({ setCurrentStep }) => {
           <p className="body-lg-regular text-third-foreground">
             {t("description")}
           </p>
-          <Link href={"/login"} className="w-2/5">
+          <Link
+            href={clientType === "2" ? `/login?type=${clientType}` : "/login"}
+            className="w-2/5"
+          >
             <Button>{t("login")}</Button>
           </Link>
         </div>

@@ -1,13 +1,11 @@
 import CheckIconUI from "@/components/icons/CheckIcon";
+import { useAppSelector } from "@/redux-toolkit/hooks";
 import { useTranslations } from "next-intl";
 import React from "react";
 
-interface IProps {
-  currentStep: number;
-}
-
-const RegisterSteps: React.FC<IProps> = ({ currentStep }) => {
+const RegisterSteps: React.FC = () => {
   const t = useTranslations("auth.register.steps");
+  const currentStep = useAppSelector((state) => state.register.currentStep);
 
   const stepsData = t.raw("data") as Array<{
     step: string;
@@ -16,7 +14,7 @@ const RegisterSteps: React.FC<IProps> = ({ currentStep }) => {
   }>;
 
   const stepsWithComplete = stepsData.map((item) => ({
-    isCompleted: currentStep === +item.step,
+    isCompleted: currentStep >= +item.step,
     ...item,
   }));
 
