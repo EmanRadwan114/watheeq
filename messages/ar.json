@@ -263,6 +263,7 @@
     "confirm": "تأكيد",
     "timerPrefix": "ينتهي وقت تفعيل الرمز خلال",
     "resend": "إعادة إرسال رمز التفعيل",
+    "resending-activation":"Resend Activation Code",
     "login": "تسجيل الدخول",
     "resending": "جاري إعادة الإرسال...",
     "errors": {

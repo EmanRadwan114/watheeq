@@ -8,7 +8,6 @@ import {
   InputOTPGroup,
   InputOTPSlot,
 } from "@/components/ui/input-otp";
-
 import type { TOtpInput } from "@/features/auth/validation/otp.validation";
 import ValidationErrorMsg from "@/components/shared/ValidationErrorMsg";
 
