@@ -43,6 +43,8 @@ const LoginCompanies: React.FC = () => {
   const unifiedNum = formLabels.find((item) => item.id === "unifiedNum");
   const passwordLabel = formLabels.find((item) => item.id === "password");
 
+  console.log(unifiedNum);
+
   return (
     <div className="flex flex-col gap-xl">
       <form className="flex flex-col gap-xl" onSubmit={handleSubmit(onSubmit)}>
