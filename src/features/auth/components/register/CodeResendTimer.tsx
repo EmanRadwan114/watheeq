@@ -6,6 +6,8 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import reapet from "@/assets/icons/repeat-register.svg";
 import { Button } from "@/components/ui/button";
+import { useAppDispatch } from "@/redux-toolkit/hooks";
+import { changeStep } from "../../store/register.slice";
 
 type CodeResendTimerProps = {
   storageKey: string;
@@ -28,6 +30,9 @@ const CodeResendTimer: React.FC<CodeResendTimerProps> = ({
   const t = useTranslations("otp");
   const [endAt, setEndAt] = useState<number | null>(null);
   const [isResending, setIsResending] = useState(false);
+
+  const dispatch = useAppDispatch();
+
   useEffect(() => {
     const saved = sessionStorage.getItem(storageKey);
     if (saved) {
@@ -43,13 +48,23 @@ const CodeResendTimer: React.FC<CodeResendTimerProps> = ({
     sessionStorage.setItem(storageKey, String(ts));
     setEndAt(ts);
   }, [storageKey, durationSeconds]);
+
   const prefix = timerPrefixText ?? t("timerPrefix");
   const resendLabel = resendText ?? t("resending-activation");
-  const canResend = endAt === null; 
+  const canResend = endAt === null;
+
+  // handle api submit => code matching
+  const handleCodeMatch = () => {
+    dispatch(changeStep(2));
+  };
+
   const handleComplete = useCallback(() => {
     sessionStorage.removeItem(storageKey);
     setEndAt(null);
+
+    handleCodeMatch(); //temporary
   }, [storageKey]);
+
   const handleResendClick = useCallback(async () => {
     if (isResending || !canResend) return;
 
@@ -80,7 +95,10 @@ const CodeResendTimer: React.FC<CodeResendTimerProps> = ({
     const ss = String(seconds).padStart(2, "0");
     return (
       <p className="text-sm text-primary-foreground text-center">
-        {prefix} <span className="font-medium">{mm}:{ss}</span>
+        {prefix}{" "}
+        <span className="font-medium">
+          {mm}:{ss}
+        </span>
       </p>
     );
   };
@@ -88,28 +106,33 @@ const CodeResendTimer: React.FC<CodeResendTimerProps> = ({
   return (
     <div className={`flex flex-col items-center gap-3 ${className}`}>
       {!hiddenTimer && endAt && (
-        <Countdown date={endAt} renderer={renderer} onComplete={handleComplete} />
+        <Countdown
+          date={endAt}
+          renderer={renderer}
+          onComplete={handleComplete}
+        />
       )}
 
       <Button
-  type="button"
-  variant="outlined"
-  onClick={() => {
-    if (isDisabled) return;
-    handleResendClick();
-  }}
-  className={`inline-flex items-center gap-2 text-sm font-medium
-    ${isDisabled
-      ? "opacity-40 cursor-not-allowed pointer-events-auto"
-      : "opacity-100 cursor-pointer"
+        type="button"
+        variant="outlined"
+        onClick={() => {
+          if (isDisabled) return;
+          handleResendClick();
+        }}
+        className={`inline-flex items-center gap-2 text-sm font-medium
+    ${
+      isDisabled
+        ? "opacity-40 cursor-not-allowed pointer-events-auto"
+        : "opacity-100 cursor-pointer"
     }
   `}
->
-  <Image src={reapet} alt="repeat" width={16} height={16} />
-  {isResending ? t("resending-activation") : resendLabel}
-</Button>
+      >
+        <Image src={reapet} alt="repeat" width={16} height={16} />
+        {isResending ? t("resending-activation") : resendLabel}
+      </Button>
     </div>
-  )
-}
+  );
+};
 
 export default CodeResendTimer;

@@ -20,8 +20,8 @@
     },
     "login": {
       "types": [
-        { "id": "type1", "label": "individuals" },
-        { "id": "type2", "label": "companies" }
+        { "id": "1", "label": "individuals" },
+        { "id": "2", "label": "companies" }
       ],
       "form-labels": {
         "header": "Login",
@@ -116,7 +116,7 @@
           },
           {
             "step": 2,
-            "title": "Nafaz Verification",
+            "title": "Nafath Verification",
             "description": "Confirm your request"
           },
           {

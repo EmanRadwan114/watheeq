@@ -1,33 +1,31 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "@/i18n/navigation";
 import RegisterSteps from "./RegisterSteps";
 import PersonalInfoForm from "./PersonalInfoForm";
 import VerifyID from "./VerifyID";
 import ClientType from "./ClientType";
+import { useAppSelector } from "@/redux-toolkit/hooks";
 
 const RegisterForm: React.FC = () => {
-  const [currentStep, setCurrentStep] = useState(0);
-
   const t = useTranslations("auth.register.register-form");
+  const currentStep = useAppSelector((state) => state.register.currentStep);
 
   return (
     <div className="flex flex-col gap-2xl">
       {/* steps */}
       <section className="p-xl bg-white border border-gray-100 rounded-lg -translate-y-6 shadow">
-        <RegisterSteps currentStep={currentStep} />
+        <RegisterSteps />
       </section>
 
       {/* register form */}
       <section className="py-2xl px-3xl bg-white border border-gray-100 rounded-lg shadow">
-        {currentStep === 0 && (
-          <PersonalInfoForm setCurrentStep={setCurrentStep} />
-        )}
+        {currentStep === 0 && <PersonalInfoForm />}
 
-        {currentStep === 1 && <VerifyID setCurrentStep={setCurrentStep} />}
-        {currentStep === 3 && <ClientType setCurrentStep={setCurrentStep} />}
+        {currentStep === 1 && <VerifyID />}
+        {currentStep === 3 && <ClientType />}
       </section>
 
       {/* login link */}
