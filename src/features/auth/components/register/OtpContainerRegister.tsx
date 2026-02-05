@@ -15,7 +15,7 @@ const OtpContainerRegister = () => {
     return <>
     <SingleCodeWithTimer
           code={code}
-          storageKey="nafath_code_endAt"
+          storageKey=""
           durationSeconds={60}
           onResend={handleResend}
           />

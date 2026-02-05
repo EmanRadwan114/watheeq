@@ -1,18 +1,14 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import FormHeader from "./FormHeader";
 import LoginCompanies from "./LoginCompanies";
 import LoginIndividuals from "./LoginIndividuals";
 import LoginSwicth from "./LoginSwitch";
-import { useSearchParams } from "next/navigation";
+import { useAppSelector } from "@/redux-toolkit/hooks";
 
 const LoginForm: React.FC = () => {
-  const loginTypeParam = useSearchParams().get("type");
-
-  const [type, setType] = useState(() =>
-    loginTypeParam === "2" ? "type2" : "type1",
-  );
+  const clientType = useAppSelector((state) => state.login.clientType);
 
   const screenWidth = useRef(1024);
 
@@ -36,10 +32,10 @@ const LoginForm: React.FC = () => {
       <FormHeader />
 
       <section className="py-5 px-xl sm:px-7.5 shadow rounded-sm">
-        <LoginSwicth type={type} setType={setType} />
+        <LoginSwicth />
 
         <div>
-          {type === "type2" ? <LoginCompanies /> : <LoginIndividuals />}
+          {clientType === "2" ? <LoginCompanies /> : <LoginIndividuals />}
         </div>
       </section>
     </div>

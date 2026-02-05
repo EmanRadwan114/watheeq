@@ -6,6 +6,9 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import reapet from "@/assets/icons/repeat-register.svg";
 import { Button } from "@/components/ui/button";
+import { useAppDispatch } from "@/redux-toolkit/hooks";
+import { changeStep } from "../../store/register.slice";
+
 
 type CodeResendTimerProps = {
   storageKey: string;
@@ -28,6 +31,13 @@ const CodeResendTimer: React.FC<CodeResendTimerProps> = ({
   const t = useTranslations("otp");
   const [endAt, setEndAt] = useState<number | null>(null);
   const [isResending, setIsResending] = useState(false);
+ const dispatch = useAppDispatch();
+  // handle api submit => code matching
+  const handleCodeMatch = () => {
+    dispatch(changeStep(2));
+  };
+
+
   useEffect(() => {
     const saved = sessionStorage.getItem(storageKey);
     if (saved) {
@@ -46,9 +56,16 @@ const CodeResendTimer: React.FC<CodeResendTimerProps> = ({
   const prefix = timerPrefixText ?? t("timerPrefix");
   const resendLabel = resendText ?? t("resending-activation");
   const canResend = endAt === null; 
+
+
   const handleComplete = useCallback(() => {
     sessionStorage.removeItem(storageKey);
     setEndAt(null);
+
+    
+    handleCodeMatch(); //temporary
+
+
   }, [storageKey]);
   const handleResendClick = useCallback(async () => {
     if (isResending || !canResend) return;
@@ -61,7 +78,12 @@ const CodeResendTimer: React.FC<CodeResendTimerProps> = ({
       const ts = Date.now() + durationSeconds * 1000;
       sessionStorage.setItem(storageKey, String(ts));
       setEndAt(ts);
-    } finally {
+    }catch (error) {
+    console.error('Failed to resend code:', error);
+    // Optionally show error message to user
+  } 
+    
+    finally {
       setIsResending(false);
     }
   }, [isResending, canResend, onResend, durationSeconds, storageKey]);
@@ -94,16 +116,13 @@ const CodeResendTimer: React.FC<CodeResendTimerProps> = ({
       <Button
   type="button"
   variant="outlined"
-  onClick={() => {
-    if (isDisabled) return;
-    handleResendClick();
-  }}
-  className={`inline-flex items-center gap-2 text-sm font-medium
-    ${isDisabled
-      ? "opacity-40 cursor-not-allowed pointer-events-auto"
-      : "opacity-100 cursor-pointer"
-    }
-  `}
+  onClick={handleResendClick}
+  aria-label={isResending ? t("resending") : resendLabel}
+  className={`inline-flex items-center gap-2 text-lg  font-medium  ${
+      isDisabled
+        ? "opacity-40 cursor-not-allowed pointer-events-auto"
+        : "opacity-100 cursor-pointer"
+    }`}
 >
   <Image src={reapet} alt="repeat" width={16} height={16} />
   {isResending ? t("resending-activation") : resendLabel}

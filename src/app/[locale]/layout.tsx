@@ -5,6 +5,7 @@ import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
 import { getMessages } from "next-intl/server";
+import StoreProvider from "@/redux-toolkit/provider";
 
 const cairoFont = Cairo({
   subsets: ["latin", "arabic"],
@@ -34,7 +35,7 @@ export default async function LocaleLayout({ children, params }: IProps) {
     <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
       <body className={`${cairoFont.className} antialiased`}>
         <NextIntlClientProvider locale={locale} messages={messages}>
-          {children}
+          <StoreProvider>{children}</StoreProvider>
         </NextIntlClientProvider>
       </body>
     </html>

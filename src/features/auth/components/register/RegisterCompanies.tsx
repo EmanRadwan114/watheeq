@@ -12,14 +12,14 @@ import {
   TRegisterCompaniesSchema,
 } from "../../validation/register.validation";
 import PasswordCheck from "../shared/PasswordCheck";
+import { useAppDispatch } from "@/redux-toolkit/hooks";
+import { changeStep } from "../../store/register.slice";
 
-interface IProps {
-  setCurrentStep: React.Dispatch<React.SetStateAction<number>>;
-}
-
-const RegisterCompanies: React.FC<IProps> = ({ setCurrentStep }) => {
+const RegisterCompanies: React.FC = () => {
   const [checked, setChecked] = useState(false);
   const dateRef = useRef<HTMLInputElement>(null);
+
+  const dispatch = useAppDispatch();
 
   const t = useTranslations("auth.register.register-form");
 
@@ -37,7 +37,7 @@ const RegisterCompanies: React.FC<IProps> = ({ setCurrentStep }) => {
 
   const onSubmit: SubmitHandler<TRegisterCompaniesSchema> = (data) => {
     console.log(data);
-    setCurrentStep((prev) => prev + 1);
+    dispatch(changeStep(1));
   };
 
   const formData = t.raw("companies") as Array<{
