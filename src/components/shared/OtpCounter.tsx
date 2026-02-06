@@ -16,7 +16,6 @@ interface IProps {
   timerPrefixText?: string;
   resendText?: string;
   forceExpired?: boolean;
-  
 }
 
 const OtpExpireTimer: React.FC<IProps> = ({
@@ -110,7 +109,7 @@ const OtpExpireTimer: React.FC<IProps> = ({
     const shouldHideAll = hidden;
   return (
     <div className={`flex flex-col items-center gap-3 text-amber-300 ${className}`}>
-      
+
       {!shouldHideAll && !isExpired && endAt && (
         <Countdown date={endAt} renderer={renderer} onComplete={handleComplete} />
       )}
